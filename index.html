@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobin John — Portfolio</title>
+
+<!-- OG Meta Tags (link previews on LinkedIn, Slack, WhatsApp, Teams, etc.) -->
+<meta name="description" content="Insurance Operations · On-Chain Intelligence · AI Engineering. 14+ years experience, $3M+ assets recovered, 15+ blockchains tracked, 4 AI products built.">
+<meta property="og:title" content="Jobin John — Portfolio">
+<meta property="og:description" content="Insurance Operations · On-Chain Intelligence · AI Engineering. 14+ years experience | $3M+ recovered | 15+ blockchains | 4 AI products built.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jobin John — Portfolio">
+<meta name="twitter:description" content="Insurance Operations · On-Chain Intelligence · AI Engineering. 14+ years, $3M+ recovered, 15+ blockchains, 4 AI products.">
+<meta name="author" content="Jobin John">
+<meta name="robots" content="index, follow">
+
+<!-- Favicon (inline SVG — no external file needed) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23000'/><text x='50' y='68' font-family='sans-serif' font-size='52' font-weight='800' fill='%2300FF41' text-anchor='middle'>JJ</text></svg>">
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#000;--black2:#050505;--black3:#0a0a0a;--card:#0d0d0d;--card2:#111;--text:#e8e8e8;--text-dim:#888;--white:#fff}
+.theme-green{--accent:#00FF41;--accent-dim:#00cc33;--accent-dark:#00880a;--accent-glow:rgba(0,255,65,0.45);--accent-glow2:rgba(0,255,65,0.12);--accent-border:rgba(0,255,65,0.22);--accent-tag-bg:rgba(0,255,65,0.07);--accent-tag-border:rgba(0,255,65,0.28)}
+.theme-blue{--accent:#00F0FF;--accent-dim:#00bbcc;--accent-dark:#0b3b82;--accent-glow:rgba(0,240,255,0.45);--accent-glow2:rgba(0,240,255,0.12);--accent-border:rgba(0,240,255,0.22);--accent-tag-bg:rgba(0,240,255,0.07);--accent-tag-border:rgba(0,240,255,0.28)}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--black);color:var(--text);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--accent-dark);border-radius:10px;box-shadow:0 0 6px var(--accent-glow)}
+.hidden{display:none!important}
+
+/* ── LANDING ── */
+#landing{min-height:100vh;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow:hidden}
+#landing::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.04) 1px,transparent 0);background-size:40px 40px;animation:gridMove 25s linear infinite;opacity:.4}
+#landing::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 50%,rgba(0,240,255,.04) 0%,rgba(0,255,65,.03) 30%,transparent 70%);pointer-events:none;animation:breathe 8s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(40px,40px)}}
+.landing-content{max-width:950px;width:100%;text-align:center;position:relative;z-index:1;animation:fadeUp 1s ease-out}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.landing-name{font-family:'Outfit',sans-serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:900;margin-bottom:12px;letter-spacing:-2px;background:linear-gradient(135deg,#667eea 0%,#00F0FF 25%,#00FF41 50%,#00F0FF 75%,#667eea 100%);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 8s ease infinite;filter:drop-shadow(0 0 30px rgba(0,240,255,.3))}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.landing-subtitle{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text-dim);letter-spacing:3px;margin-bottom:70px;text-transform:uppercase;font-weight:400;animation:fadeIn 1.2s ease-out .3s both}
+.landing-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;margin-bottom:60px;perspective:1000px}
+.landing-card{background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:50px 35px;cursor:pointer;transition:all .4s cubic-bezier(.23,1,.32,1);text-align:left;position:relative;overflow:hidden;animation:fadeUp 1s ease-out .5s both;display:flex;flex-direction:column;min-height:320px}
+.landing-card::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;transition:all .4s}
+.landing-card.blue::before{background:linear-gradient(180deg,#00F0FF,#0b3b82);box-shadow:0 0 15px rgba(0,240,255,.5)}
+.landing-card.green::before{background:linear-gradient(180deg,#00FF41,#00880a);box-shadow:0 0 15px rgba(0,255,65,.5)}
+.landing-card:hover{transform:translateY(-10px) rotateX(2deg);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.landing-card.blue:hover{box-shadow:0 20px 60px rgba(0,240,255,.3),0 0 0 1px rgba(0,240,255,.2) inset,0 0 80px rgba(0,240,255,.08)}
+.landing-card.green:hover{box-shadow:0 20px 60px rgba(0,255,65,.3),0 0 0 1px rgba(0,255,65,.2) inset,0 0 80px rgba(0,255,65,.08)}
+.card-icon{font-size:2.5rem;margin-bottom:18px;display:inline-block;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.landing-card h2{font-family:'Outfit',sans-serif;font-size:1.7rem;margin-bottom:10px;color:var(--white);font-weight:700}
+.landing-card p{font-size:.95rem;color:#999;line-height:1.6}
+.landing-contact{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text-dim);margin-top:20px;animation:fadeIn 1.2s ease-out .8s both}
+.landing-contact a{color:var(--text);text-decoration:none;margin:0 8px;transition:color .3s}.landing-contact a:hover{color:#fff}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.92);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);border-bottom:1px solid var(--accent-border);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;z-index:1000}
+nav::after{content:'';position:absolute;bottom:-1px;left:10%;width:80%;height:1px;background:linear-gradient(to right,transparent,var(--accent-glow2),transparent);pointer-events:none}
+.logo{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);text-shadow:0 0 12px var(--accent-glow)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:.88rem;transition:color .3s;font-weight:500}
+.nav-links a:hover{color:var(--accent)}
+.btn-nav{background:var(--accent)!important;color:var(--black)!important;padding:9px 22px;border-radius:8px;font-weight:700!important;box-shadow:0 0 14px var(--accent-glow)}
+.btn-nav:hover{transform:translateY(-2px);box-shadow:0 4px 20px var(--accent-glow)!important}
+.back-link{font-family:'JetBrains Mono',monospace;font-size:.8rem!important}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 5% 60px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 45%,var(--accent-glow2) 0%,transparent 70%);pointer-events:none;animation:heroGlow 6s ease-in-out infinite;z-index:0}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3) 0%,transparent 15%,transparent 85%,rgba(0,0,0,.5) 100%);pointer-events:none;z-index:0}
+@keyframes heroGlow{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.05)}}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-content{position:relative;z-index:1;max-width:880px}
+.hero-badge{display:inline-block;padding:7px 18px;border:1px solid var(--accent-border);border-radius:999px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;background:var(--accent-tag-bg);box-shadow:0 0 20px var(--accent-glow2)}
+.hero-name{font-family:'Outfit',sans-serif;font-size:clamp(3rem,7vw,5rem);font-weight:900;color:var(--accent);margin-bottom:18px;letter-spacing:-2px;text-shadow:0 0 40px var(--accent-glow),0 0 80px var(--accent-glow2)}
+.hero-title{font-size:clamp(1rem,2.5vw,1.6rem);color:var(--white);font-weight:500;margin-bottom:18px}
+.hero-subtitle{font-size:1.05rem;color:var(--text-dim);max-width:720px;margin:0 auto 36px;line-height:1.75}
+.hero-buttons{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:var(--black);padding:14px 34px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .3s;border:2px solid var(--accent);box-shadow:0 0 16px var(--accent-glow2)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 28px var(--accent-glow)}
+.btn-outline{background:transparent;color:var(--accent);padding:14px 34px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;border:2px solid var(--accent-border);transition:all .3s}
+.btn-outline:hover{background:var(--accent);color:var(--black);transform:translateY(-3px)}
+
+/* ── STATS ── */
+.stats-bar{border-top:1px solid var(--accent-border);padding:36px 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;background:var(--black2);position:relative}
+.stats-bar::before{content:'';position:absolute;top:0;left:20%;width:60%;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent);box-shadow:0 0 12px var(--accent-glow)}
+.stat{text-align:center;transition:transform .25s}.stat:hover{transform:translateY(-3px)}.stat-value{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:var(--accent);text-shadow:0 0 18px var(--accent-glow),0 0 40px var(--accent-glow2);margin-bottom:4px}.stat-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px}
+
+/* ── SECTIONS ── */
+section{padding:90px 5%;position:relative}
+section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.section-tag{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:.72rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.section-tag::before{content:'';display:inline-block;width:24px;height:1.5px;background:var(--accent)}
+.section-title{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--white);margin-bottom:14px;letter-spacing:-1px;line-height:1.15}
+.section-desc{color:var(--text-dim);max-width:600px;font-size:.97rem;margin-bottom:50px;line-height:1.75}
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--accent-border),var(--accent),var(--accent-border),transparent)}
+.alt-bg{background:var(--black2);position:relative}
+.alt-bg::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(to right,transparent,var(--accent-glow2),transparent);pointer-events:none}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;align-items:start}
+.about-text p{font-size:1rem;line-height:1.85;margin-bottom:16px;color:var(--text)}.about-text strong{color:var(--accent)}
+.highlight-grid{display:flex;flex-direction:column;gap:14px}
+.highlight-card{background:var(--card);border:1px solid var(--accent-border);border-radius:12px;padding:20px 22px;transition:border-color .25s,box-shadow .25s}
+.highlight-card:hover{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow2)}
+.hc-icon{font-size:1.3rem;margin-bottom:6px}
+.hc-title{color:var(--accent);font-weight:700;font-size:.9rem;margin-bottom:4px}
+.hc-text{color:var(--text-dim);font-size:.82rem;line-height:1.6}
+
+/* ── EXPERTISE ── */
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.expertise-card{background:var(--card);border:1px solid var(--accent-border);border-radius:14px;padding:30px 26px;transition:all .25s}
+.expertise-card:hover{border-color:var(--accent);box-shadow:0 0 28px var(--accent-glow2);transform:translateY(-4px)}
+.ec-icon{font-size:1.8rem;margin-bottom:14px;display:block}
+.expertise-card h3{color:var(--accent);font-size:1rem;font-weight:700;margin-bottom:8px}
+.expertise-card p{color:var(--text-dim);font-size:.85rem;line-height:1.7;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--accent-tag-bg);border:1px solid var(--accent-tag-border);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:3px 10px;border-radius:999px;letter-spacing:.5px}
+
+/* ── CHARTS ── */
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1100px;margin:0 auto}
+.chart-card{background:var(--card);border:1px solid var(--accent-border);border-radius:14px;padding:26px;transition:all .35s ease}
+.chart-card:hover{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow2),0 4px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
+.chart-card.full{grid-column:span 2}
+.chart-title{color:var(--white);font-size:.92rem;font-weight:700;margin-bottom:3px}
+.chart-sub{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:.68rem;margin-bottom:18px}
+.chart-wrap{position:relative;height:220px}.chart-wrap.tall{height:260px}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:32px;max-width:900px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent-dim),var(--accent-dark),transparent);box-shadow:0 0 8px var(--accent-glow2)}
+.tl-item{position:relative;padding:0 0 44px 28px}
+.tl-item::before{content:'';position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent-glow),0 0 30px var(--accent-glow2);animation:dotPulse 3s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 14px var(--accent-glow),0 0 30px var(--accent-glow2)}50%{box-shadow:0 0 20px var(--accent-glow),0 0 45px var(--accent-glow2)}}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:1px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.tl-badge{background:var(--accent-tag-bg);border:1px solid var(--accent-tag-border);padding:2px 8px;border-radius:999px;font-size:.62rem}
+.tl-card{background:var(--card);border:1px solid var(--accent-border);border-radius:12px;padding:28px;transition:border-color .25s}
+.tl-card:hover{border-color:var(--accent)}
+.tl-card h3{color:var(--white);font-size:1.15rem;font-weight:700;margin-bottom:4px}
+.tl-company{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:.78rem;margin-bottom:10px}
+.tl-card .desc{color:var(--text-dim);font-size:.88rem;line-height:1.65;margin-bottom:14px;font-style:italic}
+.tl-card ul{list-style:none;padding:0;margin-bottom:16px}
+.tl-card li{color:var(--text);font-size:.88rem;line-height:1.65;padding:4px 0 4px 18px;position:relative}
+.tl-card li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:700}
+.tl-metrics{display:flex;flex-wrap:wrap;gap:8px}
+.metric{background:var(--accent-tag-bg);border:1px solid var(--accent-tag-border);border-radius:8px;padding:6px 14px;text-align:center}
+.metric .mv{font-family:'Outfit',sans-serif;color:var(--accent);font-size:.85rem;font-weight:700}.metric .ml{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:.6rem;letter-spacing:.5px;text-transform:uppercase}
+
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.project-card{background:var(--card);border:1px solid var(--accent-border);border-radius:14px;padding:26px;transition:all .25s;display:flex;flex-direction:column;gap:10px}
+.project-card:hover{border-color:var(--accent);box-shadow:0 0 24px var(--accent-glow2);transform:translateY(-3px)}
+.pc-header{display:flex;align-items:center;justify-content:space-between}
+.pc-icon{font-size:1.6rem}
+.pc-status{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--accent);background:var(--accent-tag-bg);border:1px solid var(--accent-border);padding:3px 10px;border-radius:999px}
+.project-card h3{color:var(--white);font-weight:700;font-size:.95rem}
+.project-card p{color:var(--text-dim);font-size:.84rem;line-height:1.65}
+.pc-tech{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.pc-tech span{background:var(--accent-tag-bg);border:1px solid rgba(var(--accent),.18);color:var(--accent-dim);font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:4px}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.skill-group{background:var(--card);border:1px solid var(--accent-border);border-radius:12px;padding:24px}
+.skill-group h4{color:var(--accent);font-size:.88rem;font-weight:700;margin-bottom:14px;font-family:'JetBrains Mono',monospace}
+.skill-group li{color:var(--text);font-size:.84rem;padding:4px 0;list-style:none;padding-left:14px;position:relative}
+.skill-group li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.7rem}
+
+/* ── EDUCATION ── */
+.edu-grid{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.edu-item{background:var(--card);border:1px solid var(--accent-border);border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.edu-item .ed-title{color:var(--white);font-weight:700;font-size:.92rem}.edu-item .ed-school{color:var(--text-dim);font-size:.84rem}.edu-item .ed-year{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:.84rem}
+
+/* ── CONTACT ── */
+.contact-inner{text-align:center;max-width:650px;margin:0 auto}
+.contact-inner p{font-size:1.05rem;color:var(--text);margin-bottom:28px;line-height:1.7}
+.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.contact-link{background:var(--card);border:1px solid var(--accent-border);border-radius:10px;padding:14px 24px;color:var(--text);text-decoration:none;font-size:.88rem;transition:all .3s;display:flex;align-items:center;gap:8px}
+.contact-link:hover{border-color:var(--accent);box-shadow:0 0 16px var(--accent-glow2);color:var(--accent)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--accent-border);padding:36px 5%;text-align:center;font-size:.82rem;color:var(--text-dim);background:var(--black2);position:relative}
+footer::before{content:'';position:absolute;top:0;left:25%;width:50%;height:1px;background:linear-gradient(to right,transparent,var(--accent-glow2),transparent)}
+footer span{color:var(--accent)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);filter:blur(2px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1),filter .7s ease}.reveal.active{opacity:1;transform:translateY(0);filter:blur(0)}
+
+
+
+/* ── LANDING CARD CURSOR GLOW ── */
+.landing-card::after{content:'';position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .3s;background:radial-gradient(300px circle at var(--glow-x,50%) var(--glow-y,50%),rgba(255,255,255,.06),transparent 60%);pointer-events:none}
+.landing-card.blue::after{background:radial-gradient(300px circle at var(--glow-x,50%) var(--glow-y,50%),rgba(0,240,255,.08),transparent 60%)}
+.landing-card.green::after{background:radial-gradient(300px circle at var(--glow-x,50%) var(--glow-y,50%),rgba(0,255,65,.08),transparent 60%)}
+.landing-card:hover::after{opacity:1}
+
+/* ── SCROLL PROGRESS BAR ── */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-dim));z-index:9999;width:0%;transition:width .1s linear;box-shadow:0 0 10px var(--accent-glow)}
+.theme-blue #scroll-progress{background:linear-gradient(90deg,#00F0FF,#0b3b82)}
+.theme-green #scroll-progress{background:linear-gradient(90deg,#00FF41,#00880a)}
+
+/* ── BACK TO TOP ── */
+#back-top{position:fixed;bottom:30px;right:30px;width:46px;height:46px;border-radius:50%;background:var(--accent);color:var(--black);border:none;cursor:pointer;font-size:1.2rem;font-weight:900;z-index:999;opacity:0;pointer-events:none;transition:all .35s;box-shadow:0 0 20px var(--accent-glow);display:flex;align-items:center;justify-content:center}
+#back-top.visible{opacity:1;pointer-events:auto}
+#back-top:hover{transform:translateY(-4px) scale(1.1);box-shadow:0 8px 30px var(--accent-glow)}
+
+/* ── PAGE TRANSITION ── */
+.page-fade{animation:pageFadeIn .5s ease-out}
+@keyframes pageFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TYPING CURSOR ── */
+.typing-cursor{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:3px;animation:blink .7s infinite;vertical-align:text-bottom}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── LANDING PAGE UPGRADES ── */
+.landing-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:50px;animation:fadeIn 1.2s ease-out 1s both}
+.landing-stat{text-align:center}
+.landing-stat .ls-val{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#00F0FF,#00FF41);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.landing-stat .ls-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
+
+.landing-ticker{overflow:hidden;width:100%;margin-top:40px;animation:fadeIn 1.2s ease-out 1.2s both;position:relative}
+.landing-ticker::before,.landing-ticker::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2}
+.landing-ticker::before{left:0;background:linear-gradient(to right,#000,transparent)}
+.landing-ticker::after{right:0;background:linear-gradient(to left,#000,transparent)}
+.ticker-track{display:flex;gap:20px;animation:ticker 30s linear infinite;width:max-content}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#555;padding:6px 16px;border:1px solid rgba(255,255,255,.06);border-radius:999px;white-space:nowrap;background:rgba(255,255,255,.02)}
+
+.landing-card .card-stats{display:flex;gap:16px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
+.landing-card .cs-item{text-align:center;flex:1}
+.landing-card.blue .cs-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:#00F0FF}
+.landing-card.green .cs-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:#00FF41}
+.cs-lab{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:#666;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── COUNTER ANIMATION ── */
+.stat-value[data-target]{transition:color .3s}
+
+/* ── V1: PULSING STATUS BADGES ── */
+.pc-header .pc-status{letter-spacing:.5px}
+
+/* ── V2: TAG HOVER EFFECTS ── */
+.tag{transition:all .25s ease;cursor:default}
+.tag:hover{transform:translateY(-2px);box-shadow:0 4px 12px var(--accent-glow2);border-color:var(--accent);color:var(--accent)}
+
+/* ── V3: GRADIENT MESH DIVIDERS ── */
+.divider{height:2px;background:linear-gradient(90deg,transparent 5%,var(--accent-border) 20%,var(--accent) 50%,var(--accent-border) 80%,transparent 95%);position:relative;overflow:visible}
+.divider::before{content:'';position:absolute;top:-20px;left:0;right:0;height:40px;background:radial-gradient(ellipse 40% 100% at 50% 50%,var(--accent-glow2),transparent);pointer-events:none;opacity:.4}
+
+/* ── V4: STAGGERED CARD ENTRANCE (CSS only) ── */
+.expertise-grid .expertise-card.reveal:nth-child(2){transition-delay:.1s}
+.expertise-grid .expertise-card.reveal:nth-child(3){transition-delay:.2s}
+.projects-grid .project-card.reveal:nth-child(2){transition-delay:.08s}
+.projects-grid .project-card.reveal:nth-child(3){transition-delay:.16s}
+.projects-grid .project-card.reveal:nth-child(4){transition-delay:.24s}
+.projects-grid .project-card.reveal:nth-child(5){transition-delay:.32s}
+.projects-grid .project-card.reveal:nth-child(6){transition-delay:.4s}
+.projects-grid .project-card.reveal:nth-child(7){transition-delay:.48s}
+.projects-grid .project-card.reveal:nth-child(8){transition-delay:.56s}
+.projects-grid .project-card.reveal:nth-child(9){transition-delay:.64s}
+.skill-group.reveal:nth-child(2){transition-delay:.1s}
+.skill-group.reveal:nth-child(3){transition-delay:.2s}
+.skill-group.reveal:nth-child(4){transition-delay:.3s}
+.skill-group.reveal:nth-child(5){transition-delay:.4s}
+
+/* ── V5: HERO NAME SHIMMER ── */
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.hero-name{background-image:linear-gradient(90deg,var(--accent) 0%,var(--accent) 40%,rgba(255,255,255,.85) 50%,var(--accent) 60%,var(--accent) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s ease-in-out infinite}
+
+/* ── V6: TIMELINE METRIC HOVER GLOW ── */
+.tl-metrics .metric{transition:transform .25s}
+.tl-metrics .metric:hover{transform:translateY(-3px)}
+.tl-metrics .metric:hover .mv{text-shadow:0 0 20px var(--accent-glow),0 0 40px var(--accent-glow2)}
+
+/* ── V7: ACTIVE NAV HIGHLIGHT ── */
+nav a.nav-active{color:var(--accent) !important}
+nav a.nav-active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent);border-radius:1px;box-shadow:0 0 8px var(--accent-glow)}
+nav .nav-links a{position:relative}
+
+/* ── V8: HERO PARTICLE PARALLAX (CSS transform, no JS loop) ── */
+.hero canvas{transition:transform .15s ease-out}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+.landing-cards{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.expertise-grid{grid-template-columns:1fr}.charts-grid{grid-template-columns:1fr}.chart-card.full{grid-column:span 1}.projects-grid{grid-template-columns:1fr}.stats-bar{flex-direction:column;gap:16px}.hero-name{font-size:2.8rem}.nav-links{gap:14px;flex-wrap:wrap;font-size:.8rem}.skills-grid{grid-template-columns:1fr 1fr}
+.landing-stats{gap:20px}.landing-stat .ls-val{font-size:1.2rem}
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* PRINT STYLESHEET — light mode, minimal ink, professional look */
+/* ═══════════════════════════════════════════════════════════════ */
+@media print{
+/* Reset to light */
+*{color:#1a1a1a !important;text-shadow:none !important;box-shadow:none !important;animation:none !important;transition:none !important}
+body,section,.section,.card,.chart-card,.expertise-card,.project-card,.timeline-item,.highlight-card,.skill-group,.stats-bar{background:#fff !important;border-color:#ddd !important}
+
+/* Hide interactive/decorative elements */
+canvas,#particles-landing,#scroll-progress,#back-top,#landing,.landing-ticker,.typing-cursor,nav,.back-link,.divider::before{display:none !important}
+nav{display:block !important;position:static !important;background:#fff !important;border-bottom:2px solid #1a1a1a !important;padding:8px 0 !important;backdrop-filter:none !important}
+nav .back-link{display:none !important}
+nav .logo{color:#1a1a1a !important;font-weight:900 !important}
+nav .nav-links{display:none !important}
+
+/* Show the active version */
+.hidden{display:none !important}
+#insurance,#onchain{background:#fff !important}
+
+/* Hero */
+.hero{background:#fff !important;padding:40px 0 20px !important;min-height:auto !important}
+.hero-badge{color:#555 !important;border-color:#ccc !important;background:transparent !important}
+.hero-name{font-size:2.4rem !important;color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important;background:none !important}
+.hero-title{color:#333 !important}
+.hero-sub{color:#555 !important}
+
+/* Accent elements → dark for print */
+.stat-value,.mv,.cs-val,.ls-val{color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important;background:none !important}
+.stat-label,.ml,.cs-lab,.ls-label{color:#666 !important}
+.stats-bar{border-top:1px solid #ddd !important;border-bottom:1px solid #ddd !important;background:#f8f8f8 !important;padding:12px 20px !important}
+
+/* Section headers */
+.section-title,.section-sub{color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important;background:none !important}
+
+/* Cards */
+.about-card,.expertise-card,.highlight-card,.project-card,.chart-card,.skill-group{border:1px solid #ddd !important;background:#fafafa !important;page-break-inside:avoid}
+.tag{border-color:#ccc !important;color:#444 !important;background:#f0f0f0 !important}
+.ec-icon{filter:none !important}
+
+/* Timeline */
+.timeline-item{border-left:2px solid #1a1a1a !important;background:transparent !important}
+.timeline-item::before{background:#1a1a1a !important;box-shadow:none !important}
+.timeline::before{background:#ddd !important}
+.tl-metrics{background:#f5f5f5 !important;border:1px solid #ddd !important}
+.tl-metrics .mv{color:#1a1a1a !important}
+
+/* Education */
+.edu-item{border-color:#ddd !important}
+.ed-year{color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important;background:none !important}
+
+/* Links in contact */
+a{color:#1a1a1a !important;text-decoration:underline !important}
+
+/* Dividers */
+.divider{background:#ddd !important;height:1px !important}
+
+/* Footer */
+footer{background:#f5f5f5 !important;border-top:1px solid #ddd !important}
+
+/* Page settings */
+@page{margin:0.6in;size:letter}
+h2,h3{page-break-after:avoid}
+.section{page-break-inside:avoid}
+
+/* Charts — show but simplify */
+.chart-card canvas{max-height:200px !important}
+.chart-card{border:1px solid #ddd !important;background:#fafafa !important}
+
+/* Hide download/CTA buttons */
+.btn,.cta-btn,.hero .btn{border:1px solid #999 !important;background:transparent !important;color:#333 !important}
+
+/* Scroll reveal — make sure everything is visible */
+.reveal{opacity:1 !important;transform:none !important;filter:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ LANDING PAGE ══════════════════════ -->
+<div id="landing">
+<canvas id="particles-landing" style="position:absolute;inset:0;width:100%;height:100%;z-index:0"></canvas>
+<div class="landing-content">
+<h1 class="landing-name">JOBIN JOHN</h1>
+<p class="landing-subtitle">Insurance Operations · On-Chain Intelligence · AI Engineering</p>
+
+<div class="landing-stats">
+<div class="landing-stat"><div class="ls-val">14+</div><div class="ls-label">Years Experience</div></div>
+<div class="landing-stat"><div class="ls-val">$3M+</div><div class="ls-label">Assets Recovered</div></div>
+<div class="landing-stat"><div class="ls-val">5+</div><div class="ls-label">Countries</div></div>
+<div class="landing-stat"><div class="ls-val">4</div><div class="ls-label">AI Products Built</div></div>
+</div>
+
+<div class="landing-cards">
+<div class="landing-card blue" onclick="showVersion('insurance')">
+<div class="card-icon">🛡️</div>
+<h2>Insurance & Claims Operations</h2>
+<p>7+ years across subrogation, reinsurance, and commercial claims. Built tracking systems, recovered assets, handled $80M catastrophic losses.</p>
+<div class="card-stats">
+<div class="cs-item"><div class="cs-val">$3M+</div><div class="cs-lab">Recovered</div></div>
+<div class="cs-item"><div class="cs-val">300-400</div><div class="cs-lab">Claims</div></div>
+<div class="cs-item"><div class="cs-val">85%+</div><div class="cs-lab">Acceptance</div></div>
+</div>
+</div>
+<div class="landing-card green" onclick="showVersion('onchain')">
+<div class="card-icon">⛓️</div>
+<h2>On-Chain Intelligence & Data</h2>
+<p>Blockchain analytics, financial pattern recognition, and AI-powered tools — built independently since 2017.</p>
+<div class="card-stats">
+<div class="cs-item"><div class="cs-val">2017</div><div class="cs-lab">Since</div></div>
+<div class="cs-item"><div class="cs-val">15+</div><div class="cs-lab">Ecosystems</div></div>
+<div class="cs-item"><div class="cs-val">4</div><div class="cs-lab">Products Built</div></div>
+</div>
+</div>
+</div>
+
+<div class="landing-ticker">
+<div class="ticker-track">
+<span class="ticker-item">Subrogation</span><span class="ticker-item">Reinsurance</span><span class="ticker-item">Bordereaux</span><span class="ticker-item">Python</span><span class="ticker-item">SQL</span><span class="ticker-item">LangChain</span><span class="ticker-item">Arkham</span><span class="ticker-item">Polymarket</span><span class="ticker-item">RAG</span><span class="ticker-item">DeFi</span><span class="ticker-item">LexisNexis</span><span class="ticker-item">OpenClaw</span><span class="ticker-item">Kalshi</span><span class="ticker-item">Reserve Analysis</span><span class="ticker-item">Pine Script</span><span class="ticker-item">PII Redaction</span>
+<span class="ticker-item">Subrogation</span><span class="ticker-item">Reinsurance</span><span class="ticker-item">Bordereaux</span><span class="ticker-item">Python</span><span class="ticker-item">SQL</span><span class="ticker-item">LangChain</span><span class="ticker-item">Arkham</span><span class="ticker-item">Polymarket</span><span class="ticker-item">RAG</span><span class="ticker-item">DeFi</span><span class="ticker-item">LexisNexis</span><span class="ticker-item">OpenClaw</span><span class="ticker-item">Kalshi</span><span class="ticker-item">Reserve Analysis</span><span class="ticker-item">Pine Script</span><span class="ticker-item">PII Redaction</span>
+</div>
+</div>
+
+<div class="landing-contact">
+<a href="mailto:jjohn3858@gmail.com">jjohn3858@gmail.com</a> |
+<a href="tel:+14698822346">+1-469-882-2346</a> |
+Forney, TX (Open to Remote)
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════ INSURANCE VERSION ══════════════════════ -->
+<div id="insurance" class="hidden theme-blue">
+<div id="scroll-progress"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<nav>
+<div class="logo">JJ ∴</div>
+<div class="nav-links">
+<a href="#" class="back-link" onclick="showLanding();return false">← All Versions</a>
+<a href="#about-ins">About</a>
+<a href="#expertise-ins">Expertise</a>
+<a href="#charts-ins">Analytics</a>
+<a href="#exp-ins">Experience</a>
+<a href="#projects-ins">Projects</a>
+<a href="#skills-ins">Skills</a>
+<a href="#contact-ins">Contact</a>
+
+</div>
+</nav>
+
+<section class="hero">
+<canvas id="particles-ins"></canvas>
+<div class="hero-content">
+<div class="hero-badge">Claims & Subrogation Specialist</div>
+<h1 class="hero-name">JOBIN JOHN</h1>
+<h2 class="hero-title">Claims & Subrogation | Reinsurance Operations</h2>
+<p class="hero-subtitle">7+ years recovering assets, preparing claims bordereaux, and building tools to make insurance operations work faster. $3M+ recovered. 300–400 concurrent claims. 5+ countries.</p>
+<div class="hero-buttons">
+<a href="#exp-ins" class="btn-primary">View Experience</a>
+<a href="#contact-ins" class="btn-outline">Contact Me</a>
+</div>
+</div>
+</section>
+
+<div class="stats-bar">
+<div class="stat"><div class="stat-value" data-target="3" data-prefix="$" data-suffix="M+">$3M+</div><div class="stat-label">Assets Recovered</div></div>
+<div class="stat"><div class="stat-value" data-target="350" data-prefix="" data-suffix="">300–400</div><div class="stat-label">Concurrent Claims</div></div>
+<div class="stat"><div class="stat-value">85%+</div><div class="stat-label">Demand Acceptance</div></div>
+<div class="stat"><div class="stat-value">6+</div><div class="stat-label">Coverage Lines</div></div>
+<div class="stat"><div class="stat-value">5+</div><div class="stat-label">Countries</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about-ins">
+<div class="about-grid">
+<div class="about-text reveal">
+<div class="section-tag">About</div>
+<h2 class="section-title">Who I Am</h2>
+<p>I've spent my career in claims operations — subrogation recovery, commercial claims handling, and reinsurance reporting across the UAE and the US. At Crawford, I ran a nationwide subrogation portfolio for 7-Eleven and recovered over $3 million. At RAK Insurance, I handled the claims side of inward reinsurance reporting — bordereaux, reserve validation, multi-currency reconciliation across international counterparties spanning UAE, Qatar, Saudi Arabia, Lebanon, and France.</p>
+<p>I figure things out. When the claims system at Crawford was too slow, I built my own Excel tracking framework that pushed throughput up 30%. When I needed to process unstructured financial documents faster, I built an AI-powered application that turns a 6-hour due diligence questionnaire into 10 minutes of structured output with exact citations. I work independently, and I'd rather get the work right than talk about it.</p>
+<p>I stepped away from traditional employment in 2020 for family caregiving. I didn't stop working — I spent the time building technical skills (Python, SQL, AI/LLM integrations), doing independent financial analysis across large datasets, detecting fraud patterns, and building production tools. Four years of daily analytical work that maps directly to claims operations. I'm ready to bring all of it back to insurance.</p>
+</div>
+<div class="highlight-grid reveal">
+<div class="highlight-card"><div class="hc-icon">🏆</div><div class="hc-title">$3M+ Asset Recovery</div><div class="hc-text">Managed a 300–400 file national commercial subrogation portfolio (7-Eleven) over ~3.5 years at Crawford & Company / Broadspire.</div></div>
+<div class="highlight-card"><div class="hc-icon">🤖</div><div class="hc-title">Production AI Tools</div><div class="hc-text">Built a Document Intelligence Platform that processes messy PDFs, redacts PII, and produces structured Excel outputs with cited answers. Turns a 6-hour DDQ into 10 minutes.</div></div>
+<div class="highlight-card"><div class="hc-icon">📊</div><div class="hc-title">Reinsurance Operations</div><div class="hc-text">Sole responsibility for monthly claims bordereaux at RAK Insurance — verifying proportional shares, payment obligations, and outstanding reserves across international counterparties in multiple currencies.</div></div>
+<div class="highlight-card"><div class="hc-icon">🌍</div><div class="hc-title">International Operations — 5+ Countries</div><div class="hc-text">Lived and worked across UAE, US, and UK. Handled claims and reinsurance with counterparties in Qatar, Saudi Arabia, Lebanon, and France. Different languages, different currencies, different regulatory systems — figured it out each time.</div></div>
+</div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- EXPERTISE -->
+<section id="expertise-ins" class="alt-bg">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Core Expertise</div>
+<h2 class="section-title reveal">Three Disciplines,<br>One Operator</h2>
+<p class="section-desc reveal">I don't just do one of these. I do all three — and that's what makes the difference.</p>
+</div>
+<div class="expertise-grid">
+<div class="expertise-card reveal"><span class="ec-icon">🛡️</span><h3>Subrogation & Asset Recovery</h3><p>End-to-end recovery from investigation through closure. Evidence packaging, demand development, negotiation, and settlement. Built custom tracking systems to manage high-volume portfolios.</p><div class="tags"><span class="tag">Subrogation</span><span class="tag">Demand Packages</span><span class="tag">Negotiation</span><span class="tag">Settlement</span><span class="tag">LexisNexis</span><span class="tag">SIU Referral</span><span class="tag">Cross-Border</span></div></div>
+<div class="expertise-card reveal"><span class="ec-icon">📋</span><h3>Claims Operations & Reinsurance</h3><p>Commercial claims across 6+ coverage lines with reinsurance claims reporting responsibilities. Monthly bordereaux preparation, reserve adequacy reviews, and multi-party reconciliation with counterparties across UAE, Qatar, Saudi Arabia, Lebanon, France, US, and Canada.</p><div class="tags"><span class="tag">Bordereaux</span><span class="tag">Treaty/Facultative</span><span class="tag">Reserve Analysis</span><span class="tag">FNOL</span><span class="tag">Commercial Lines</span><span class="tag">MIS Reporting</span><span class="tag">FOA/Discharge</span><span class="tag">Cross-Border</span></div></div>
+<div class="expertise-card reveal"><span class="ec-icon">⚙️</span><h3>Data Tools & Process Automation</h3><p>Built operational tools when existing systems weren't enough. Python, SQL, advanced Excel, and AI/LLM integrations applied to insurance workflows — document processing, claims triage, evidence review.</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Advanced Excel</span><span class="tag">LangChain</span><span class="tag">LLM APIs</span><span class="tag">Document Intelligence</span><span class="tag">Local LLMs</span></div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CHARTS -->
+<section id="charts-ins">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">By the Numbers</div>
+<h2 class="section-title reveal">Performance Analytics</h2>
+<p class="section-desc reveal">The numbers behind the work. All verified, all mine.</p>
+</div>
+<div class="charts-grid">
+<div class="chart-card reveal"><div class="chart-title">Asset Recovery Performance</div><div class="chart-sub">Annual third-party asset recovery ($K) — Crawford & Company</div><div class="chart-wrap"><canvas id="recoveryChart-ins"></canvas></div></div>
+<div class="chart-card reveal"><div class="chart-title">Claims Portfolio Scale</div><div class="chart-sub">Active inventory vs. daily new claims intake per role</div><div class="chart-wrap"><canvas id="claimsChart-ins"></canvas></div></div>
+<div class="chart-card reveal"><div class="chart-title">Capability Assessment</div><div class="chart-sub">Proficiency across core disciplines</div><div class="chart-wrap tall"><canvas id="radarChart-ins"></canvas></div></div>
+<div class="chart-card reveal"><div class="chart-title">Insurance Coverage Lines</div><div class="chart-sub">Depth of experience by line</div><div class="chart-wrap tall"><canvas id="coverageChart-ins"></canvas></div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="exp-ins" class="alt-bg">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Career History</div>
+<h2 class="section-title reveal">Professional Experience</h2>
+<p class="section-desc reveal">Started in the UAE, moved to the US, never stopped building.</p>
+</div>
+<div class="timeline">
+
+<!-- Crawford -->
+<div class="tl-item reveal">
+<div class="tl-date">Oct 2016 – Mar 2020</div>
+<div class="tl-card">
+<h3>Subrogation Specialist</h3>
+<div class="tl-company">Crawford & Company (Broadspire) · Dallas, TX</div>
+<p class="desc">Ran the 7-Eleven subrogation portfolio nationwide as a TPA — drive-thru hits, dispenser damage, signage, storefront impacts across the US and Canada.</p>
+<ul>
+<li>Recovered over $3 Million from various insurance companies, third parties, and uninsured over 3.5 years, including multiple six-figure single-case recoveries</li>
+<li>Worked on and maintained 300–400+ claims on a regular basis, handling 10–20 new FNOLs daily, following up on each to bring them to conclusion</li>
+<li>Owned every file from start to finish — investigation, police reports, CCTV, contractor invoices, witness statements, building the demand package, negotiating, and closing. All mine</li>
+<li>Improved demand quality through complete evidence packages and timeline reconstruction. Got 85%+ acceptance on first submission from opposing carriers</li>
+<li>The claims system was painfully slow, so I built my own Excel tracking framework to work around it. Color-coded, status-based — tracked missing documents, bottlenecks, aging, and next actions. That pushed throughput up about 30%</li>
+<li>Negotiated directly with trucking companies, third-party carriers, and adjusters across the US and Canada. Handled cross-border cases and payments in both directions</li>
+<li>Coordinated with legal counsel, contractors, and franchisees on complex claims. Referred suspected fraud — inflated figures, identity fraud — to SIU. Used LexisNexis when needed for party validation and filling information gaps</li>
+</ul>
+<div class="tl-metrics"><div class="metric"><div class="mv">$3M+</div><div class="ml">Recovered</div></div><div class="metric"><div class="mv">300–400</div><div class="ml">Active Files</div></div><div class="metric"><div class="mv">85%+</div><div class="ml">Demand Acceptance</div></div><div class="metric"><div class="mv">+30%</div><div class="ml">Throughput</div></div></div>
+</div>
+</div>
+
+<!-- Windhaven -->
+<div class="tl-item reveal">
+<div class="tl-date">Jan 2016 – Aug 2016</div>
+<div class="tl-card">
+<h3>Auto Claims Adjuster</h3>
+<div class="tl-company">Windhaven Insurance · Dallas, TX</div>
+<p class="desc">1st and 3rd-party auto PD claims. Fast-moving volume — daily intake plus a large active queue. Had to balance closure speed with documentation sufficiency and claim defensibility.</p>
+<ul>
+<li>Handled 30–40 new claims per day, 5–10 transferred claims, and kept an active inventory of 180+ files up to date</li>
+<li>Made independent liability and coverage decisions on each file using police reports, traffic footage, witness statements, and damage assessments</li>
+<li>Got statements from both insureds and claimants to confirm liability and establish fault for 3rd-party claims</li>
+<li>Issued denials when documentation or facts required it, and communicated the denial rationale clearly to claimants and their representatives</li>
+<li>Used LexisNexis daily to validate parties, trace prior claims history, and fill information gaps. Referred suspected fraud cases to the Special Investigations Unit</li>
+<li>Worked with body shops, independent adjusters, and rental agencies to get vehicles fixed, keep storage fees down, and reduce customer wait times</li>
+<li>Talked to attorneys, adverse carriers, insureds, and claimants daily to get claims resolved and negotiate settlements within my authority up to $25K</li>
+<li>Referred recovery-eligible files to subrogation and escalated anything above my level to management. Made sure every file was properly documented</li>
+</ul>
+<div class="tl-metrics"><div class="metric"><div class="mv">30–40</div><div class="ml">Claims/Day</div></div><div class="metric"><div class="mv">$25K</div><div class="ml">Settlement Auth.</div></div><div class="metric"><div class="mv">180+</div><div class="ml">Active Inventory</div></div></div>
+</div>
+</div>
+
+<!-- RAK -->
+<div class="tl-item reveal">
+<div class="tl-date">Apr 2013 – Oct 2015</div>
+<div class="tl-card">
+<h3>Claims Officer</h3>
+<div class="tl-company">RAK Insurance · Ras Al Khaimah, UAE</div>
+<p class="desc">Non-motor commercial claims from notification through to closure, plus sole responsibility for the claims side of reinsurance reporting on top of regular claims handling.</p>
+<ul>
+<li>Managed claims across Fire, Property All Risk, Marine Cargo (Inland & Ocean), Workers' Compensation, and Engineering. Worked with brokers, cedants, reinsurers, surveyors, loss adjusters, and legal counsel across UAE, Qatar, Saudi Arabia, Lebanon, and France</li>
+<li>Ran the claims side of bordereaux and reinsurance reporting — not the underwriting placement side. Prepared and reconciled monthly claims bordereaux for the underwriting and accounts teams, verifying each party's proportional financial share, payment obligations, and outstanding reserves across international counterparties in multiple currencies</li>
+<li>Validated reserve movements and reinsurer share allocations against policy and treaty terms. Reconciled paid and outstanding positions monthly and fixed reporting mismatches</li>
+<li>Set and adjusted reserves claim by claim, allocating by reinsurer and treaty layer based on retention limits, surveyor reports, and how each claim was developing</li>
+<li>Did monthly reserve adequacy reviews using stair-stepping methodology — updating provisions as new estimates, surveyor reports, or legal inputs came in</li>
+<li>Prepared and followed up on large-loss documentation: FOA (first advice), discharge receipts, proof of payment, surveyor reports, and supporting correspondence. Supported debit/credit note processing and made sure settlement documentation was ready before anything went out</li>
+<li>Coordinated on the Villagio Mall catastrophic loss (~$80M USD). RAK Insurance was one of the reinsurers on the risk. Managed counterparty correspondence, payment allocation, discharge receipt follow-up, and share verification across international parties spanning UAE, Qatar, Lebanon, and France. Multi-year resolution involving fatalities</li>
+<li>Notified facultative reinsurers of claim intimation and kept them updated on developments through to final settlement. Verified claims information for all inward reinsurance claims</li>
+<li>Had $20K settlement authority and $50K reserve authority. Appointed and supervised independent loss adjusters and surveyors, making sure they hit SLA deadlines and reported accurately</li>
+<li>Built Excel tracking systems for file status, reserve movements, and reporting gaps where the existing systems weren't enough. Trained my replacement over several months with a full process handover before moving to the US</li>
+</ul>
+<div class="tl-metrics"><div class="metric"><div class="mv">~$80M</div><div class="ml">Villagio Mall</div></div><div class="metric"><div class="mv">$50K</div><div class="ml">Reserve Auth.</div></div><div class="metric"><div class="mv">6+</div><div class="ml">Coverage Lines</div></div></div>
+</div>
+</div>
+
+<!-- Independent -->
+<div class="tl-item reveal">
+<div class="tl-date">Apr 2020 – Present <span class="tl-badge">Current</span></div>
+<div class="tl-card">
+<h3>Independent Analytical Work & Technical Development</h3>
+<div class="tl-company">Self-Directed · Dallas, TX</div>
+<p class="desc">Stepped away for family caregiving. Didn't stop working — spent the time building technical skills and doing independent financial analysis.</p>
+<ul>
+<li>Built a document analysis application from scratch using Python, LangChain, and LLM APIs. Takes messy financial and legal PDFs, redacts PII on the client side, chunks the documents, and returns structured Excel outputs with exact citations (page, paragraph, line). A DDQ that normally takes 5-6 hours — handles in under 10 minutes. Built it because I got tired of important information being buried in unstructured documents</li>
+<li>Configured and deployed a local AI assistant (OpenClaw) so I could run LLMs on my own machine without any data leaving the device. Set up the full environment from scratch — Python dependencies, model configuration, system troubleshooting. Useful for anything involving PII or sensitive documents where you can't risk data hitting external APIs</li>
+<li>Spent four years doing independent financial analysis — tracking transaction flows across multiple ledgers, reconciling multi-party positions, and identifying patterns in noisy, high-volume financial data. Same type of analytical work as claims reconciliation, just a different dataset</li>
+<li>Built SQL-based reporting dashboards to monitor large-scale transaction activity, set up threshold alerts, and track capital movements across multiple counterparties. Wrote the queries myself</li>
+<li>Identified fraudulent activity patterns in financial data on a regular basis — entities disguising ownership through layered accounts, coordinated manipulation, artificially inflated figures. Same investigative logic as SIU referral work, just applied to a different environment</li>
+<li>Picked up Python, SQL, advanced Excel modeling, Pine Script, and command-line automation. Using them daily for data extraction, reporting, and analysis</li>
+<li>Managed personal capital from $5K to over $300K using disciplined risk controls and position sizing frameworks. Not luck — documented methodology applied consistently over years. Same discipline and process rigor that applies to claims management</li>
+<li>Reviewed hundreds of financial documents and technical disclosures to assess risk — evaluating fee structures, counterparty obligations, and verifying whether what was claimed on paper matched what was actually happening</li>
+</ul>
+</div>
+</div>
+</div><!-- end timeline -->
+</section>
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects-ins">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Work Samples</div>
+<h2 class="section-title reveal">Featured Projects</h2>
+<p class="section-desc reveal">I needed something, it didn't exist, so I built it.</p>
+</div>
+<div class="projects-grid">
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">📄</span><span class="pc-status">🟢 Production</span></div><h3>Document Intelligence Platform</h3><p>I got tired of important information being buried in messy PDFs. So I built an app that takes unstructured insurance and financial documents, redacts PII on the browser side, runs them through LLMs, and gives back structured Excel outputs with exact citations — page, paragraph, line number. A DDQ that normally takes 5-6 hours? Done in under 10 minutes.</p><div class="pc-tech"><span>Python</span><span>LangChain</span><span>LLM APIs</span><span>RAG</span><span>PII Redaction</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🖥️</span><span class="pc-status">🟢 Active</span></div><h3>Local AI Assistant (OpenClaw)</h3><p>Set up a local AI that runs entirely on my machine — no data leaves the device. Handles document analysis, Q&A, and research tasks without touching external APIs. Built the full environment from scratch: model setup, Python config, troubleshooting. If you're dealing with PII or sensitive claims data, this is how you use AI without the risk.</p><div class="pc-tech"><span>Python</span><span>OpenClaw</span><span>Local LLMs</span><span>Inference</span><span>Privacy-First</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🗂️</span><span class="pc-status">🏆 Enterprise</span></div><h3>Crawford Excel Recovery Tracker</h3><p>Custom multi-sheet Excel framework built to manage 300–400 concurrent subrogation files at Crawford. Tracked demand status, response deadlines, recovery totals, missing documents, and bottleneck identification. Color-coded, status-based. Improved throughput by approximately 30%.</p><div class="pc-tech"><span>Advanced Excel</span><span>Claims Ops</span><span>Subrogation</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">📊</span><span class="pc-status">🟢 Active</span></div><h3>Financial Analysis Dashboards</h3><p>SQL-based reporting dashboards for monitoring large-scale transaction activity across multiple counterparties. Threshold-based alerting, capital flow tracking, and pattern detection.</p><div class="pc-tech"><span>SQL</span><span>Python</span><span>Data Analysis</span></div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills-ins" class="alt-bg">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Technical Skills</div>
+<h2 class="section-title reveal">Full Capabilities</h2>
+</div>
+<div class="skills-grid" style="margin-top:40px">
+<div class="skill-group reveal"><h4>Insurance Operations</h4><ul><li>Subrogation Recovery</li><li>Claims Bordereaux</li><li>Reserve Analysis</li><li>Treaty/Facultative Reinsurance</li><li>FNOL Processing</li><li>Demand Packages</li><li>LexisNexis</li><li>Multi-line Commercial</li><li>MIS Reporting</li><li>FOA/Discharge Documentation</li></ul></div>
+<div class="skill-group reveal"><h4>Data & Analytics</h4><ul><li>Advanced Excel (VBA)</li><li>SQL</li><li>Dashboard Design</li><li>Fund-Flow Analysis</li><li>Performance KPIs</li><li>Fraud Pattern Detection</li><li>Financial Reconciliation</li></ul></div>
+<div class="skill-group reveal"><h4>AI & Development</h4><ul><li>Python (Pandas, NumPy)</li><li>LangChain</li><li>RAG Pipelines</li><li>LLM APIs</li><li>Local LLMs (OpenClaw)</li><li>Document Intelligence</li><li>PII Redaction</li><li>Process Automation</li></ul></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="edu-ins">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Education & Certifications</div>
+<h2 class="section-title reveal">Credentials</h2>
+</div>
+<div class="edu-grid" style="margin-top:40px">
+<div class="edu-item reveal"><div><div class="ed-title">MBA</div><div class="ed-school">Middlesex University, London, UK</div></div><div class="ed-year">2011</div></div>
+<div class="edu-item reveal"><div><div class="ed-title">BSc Computer Science</div><div class="ed-school">Manipur University, India</div></div><div class="ed-year">2008</div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact-ins" class="alt-bg">
+<div class="contact-inner">
+<div class="section-tag reveal" style="justify-content:center">Let's Connect</div>
+<h2 class="section-title reveal" style="text-align:center">Get In Touch</h2>
+<p class="reveal">Open to claims operations, subrogation, reinsurance, and InsurTech roles. Available for Dallas-based or remote positions.</p>
+<div class="contact-links reveal">
+<a href="mailto:jjohn3858@gmail.com" class="contact-link">📧 jjohn3858@gmail.com</a>
+<a href="tel:+14698822346" class="contact-link">📱 +1-469-882-2346</a>
+<a href="https://www.linkedin.com/in/jobin-john-3876593a4/" target="_blank" class="contact-link">💼 LinkedIn</a>
+</div>
+</div>
+</section>
+<footer>© <span class="auto-year"></span> <span>Jobin John</span> · Claims & Subrogation · Reinsurance Operations · AI Engineering</footer>
+</div><!-- end insurance -->
+
+<!-- ══════════════════════ ON-CHAIN VERSION ══════════════════════ -->
+<div id="onchain" class="hidden theme-green">
+<div id="scroll-progress"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<nav>
+<div class="logo">JJ ∴</div>
+<div class="nav-links">
+<a href="#" class="back-link" onclick="showLanding();return false">← All Versions</a>
+<a href="#about-on">About</a>
+<a href="#expertise-on">Expertise</a>
+<a href="#charts-on">Analytics</a>
+<a href="#exp-on">Experience</a>
+<a href="#projects-on">Projects</a>
+<a href="#skills-on">Skills</a>
+<a href="#contact-on">Contact</a>
+<a href="#contact-on" class="btn-nav">Hire Me</a>
+</div>
+</nav>
+
+<section class="hero">
+<canvas id="particles-on"></canvas>
+<div class="hero-content">
+<div class="hero-badge">On-Chain Since 2017</div>
+<h1 class="hero-name">JOBIN JOHN</h1>
+<h2 class="hero-title">On-Chain Intelligence · Insurance Recovery · AI Engineer</h2>
+<p class="hero-subtitle">I've tracked whale wallets, spotted manipulation setups from wallet activity alone, recovered $3M+ in assets through investigations, grew $5K to over $300K through on-chain analysis and disciplined risk management, and built production AI systems. I build what I need — Python, SQL, LLM APIs, whatever gets the job done.</p>
+<div class="hero-buttons">
+<a href="#exp-on" class="btn-primary">View Work</a>
+<a href="#contact-on" class="btn-outline">Get In Touch</a>
+</div>
+</div>
+</section>
+
+<div class="stats-bar">
+<div class="stat"><div class="stat-value">2017</div><div class="stat-label">On-Chain Since</div></div>
+<div class="stat"><div class="stat-value">$5K→$300K+</div><div class="stat-label">Capital Grown</div></div>
+<div class="stat"><div class="stat-value">$3M+</div><div class="stat-label">Assets Recovered</div></div>
+<div class="stat"><div class="stat-value">15+</div><div class="stat-label">Blockchains Tracked</div></div>
+<div class="stat"><div class="stat-value">4</div><div class="stat-label">AI/Data Products</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about-on">
+<div class="about-grid">
+<div class="about-text reveal">
+<div class="section-tag">About</div>
+<h2 class="section-title">The Full Picture</h2>
+<p>I've been taking things apart to understand how they work since I was 8 — my dad's cassette radio, VCRs, CD players, early flat screens — whatever he brought home. Built my first PC from components at 15, no internet, no guides, just manuals and figuring it out. That same instinct is why I went on-chain in 2017 and never stopped.</p>
+<p>Grew $5K of personal capital to over $300K through disciplined position management, on-chain analysis, and risk controls I built myself. I've tracked whale wallets, spotted manipulation setups from wallet activity alone, and analyzed fund flows across most major L1s and L2s. Deep hands-on experience across the full DeFi spectrum: BTC (spot, Ordinals/BRC-20, Lightning Network, Stacks L2), liquid staking, restaking, perpetuals, prediction markets (Polymarket, Kalshi), NFTs, RWAs, DAOs, cross-chain bridges, DePIN, and GameFi.</p>
+<p>Before going full-time on-chain, I spent seven years in insurance doing financial investigations, multi-party reconciliation, and asset recovery. Recovered $3M+ running a nationwide subrogation portfolio and handled claims bordereaux across international counterparties in multiple currencies. I build what I need — Python, SQL, LLM APIs, whatever gets the job done. I'd rather get the work right than talk about it.</p>
+</div>
+<div class="highlight-grid reveal">
+<div class="highlight-card"><div class="hc-icon">🏆</div><div class="hc-title">$3M+ Asset Recovery</div><div class="hc-text">Managed a 300–400 file national commercial subrogation portfolio (7-Eleven) over ~3.5 years at Crawford & Company / Broadspire.</div></div>
+<div class="highlight-card"><div class="hc-icon">⛓️</div><div class="hc-title">On-Chain Since 2017 · $5K → $300K+</div><div class="hc-text">Grew personal capital from $5K to over $300K through on-chain analysis and disciplined risk management. Tracked whale wallets, DeFi protocols, NFTs, bridges, perpetuals, prediction markets (Polymarket, Kalshi), RWAs, DePIN, and GameFi across Bitcoin, Ethereum, Solana, Arbitrum, Base, Optimism, Polygon, Avalanche, BSC, Cosmos, Sui, Aptos, Near, Stacks, Tron, and more.</div></div>
+<div class="highlight-card"><div class="hc-icon">🤖</div><div class="hc-title">Production AI Systems</div><div class="hc-text">Built a Document Intelligence Platform (LangChain, RAG, PII redaction), Local AI Assistant (OpenClaw), and an Affiliate Commerce Engine that scrapes products, scores them, and auto-generates video reviews using Gemini + ElevenLabs + Shotstack.</div></div>
+<div class="highlight-card"><div class="hc-icon">🌍</div><div class="hc-title">International Operations — 5+ Countries</div><div class="hc-text">Lived and worked across UAE, US, and UK. Handled claims and reinsurance with counterparties in Qatar, Saudi Arabia, Lebanon, and France. Different systems, different currencies — figured it out each time.</div></div>
+</div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- EXPERTISE -->
+<section id="expertise-on" class="alt-bg">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Core Expertise</div>
+<h2 class="section-title reveal">Three Pillars,<br>One Rare Profile</h2>
+<p class="section-desc reveal">Most people in crypto can't do insurance. Most people in insurance can't do crypto. I do both, and I build the tools on top.</p>
+</div>
+<div class="expertise-grid">
+<div class="expertise-card reveal"><span class="ec-icon">⛓️</span><h3>On-Chain Intelligence</h3><p>Independent on-chain research since 2017. Wallet clustering, fund-flow tracing, market manipulation detection, and protocol-level risk assessment across most major ecosystems. Deep hands-on participation across BTC (Ordinals, Lightning, Stacks), DeFi, NFTs, liquid staking, perpetuals, prediction markets, RWAs, DAOs, bridges, DePIN, and GameFi.</p><div class="tags"><span class="tag">Arkham</span><span class="tag">Bubblemaps</span><span class="tag">GMGN</span><span class="tag">DexScreener</span><span class="tag">Photon</span><span class="tag">Wallet Clustering</span><span class="tag">Fund Flow</span><span class="tag">Etherscan</span><span class="tag">Bitcoin/Ordinals</span><span class="tag">Stacks/Lightning</span><span class="tag">DeFi</span><span class="tag">NFTs</span><span class="tag">Perpetuals</span><span class="tag">Polymarket</span><span class="tag">Kalshi</span><span class="tag">Prediction Markets</span></div></div>
+<div class="expertise-card reveal"><span class="ec-icon">🛡️</span><h3>Insurance Operations</h3><p>7+ years across commercial and personal lines. 7+ years handling claims end-to-end — subrogation recovery, reinsurance claims reporting, and multi-party reconciliation across 5+ countries including UAE, US, Qatar, Lebanon, and France.</p><div class="tags"><span class="tag">Subrogation</span><span class="tag">FNOL</span><span class="tag">Bordereaux</span><span class="tag">Reserve Analysis</span><span class="tag">Treaty/Facultative</span><span class="tag">Commercial Lines</span><span class="tag">Demand Packages</span><span class="tag">LexisNexis</span></div></div>
+<div class="expertise-card reveal"><span class="ec-icon">🤖</span><h3>AI & Data Engineering</h3><p>Built working AI systems that solve real problems — document processing with LLM APIs (OpenAI, Anthropic, Gemini), RAG pipelines for cited answers, PII redaction workflows, and a video generation pipeline (Gemini + ElevenLabs + Shotstack). Python and LangChain are my primary tools.</p><div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Supabase</span><span class="tag">Next.js</span><span class="tag">Local LLMs</span><span class="tag">LLM APIs</span></div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CHARTS -->
+<section id="charts-on">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">By the Numbers</div>
+<h2 class="section-title reveal">Performance Analytics</h2>
+<p class="section-desc reveal">Real numbers from real work. Insurance recovery data is from Crawford. On-chain coverage reflects actual activity since 2017.</p>
+</div>
+<div class="charts-grid">
+<div class="chart-card reveal"><div class="chart-title">Asset Recovery Performance</div><div class="chart-sub">Annual third-party asset recovery ($K) — Crawford & Company</div><div class="chart-wrap"><canvas id="recoveryChart-on"></canvas></div></div>
+<div class="chart-card reveal"><div class="chart-title">Claims Portfolio Scale</div><div class="chart-sub">Active inventory vs. daily new claims intake per role</div><div class="chart-wrap"><canvas id="claimsChart-on"></canvas></div></div>
+<div class="chart-card reveal"><div class="chart-title">Capability Assessment</div><div class="chart-sub">Proficiency across core disciplines</div><div class="chart-wrap tall"><canvas id="radarChart-on"></canvas></div></div>
+<div class="chart-card reveal"><div class="chart-title">Insurance Coverage Lines</div><div class="chart-sub">Depth of experience by line</div><div class="chart-wrap tall"><canvas id="coverageChart-on"></canvas></div></div>
+<div class="chart-card full reveal"><div class="chart-title">On-Chain Activity Distribution</div><div class="chart-sub">Blockchain activity split by ecosystem (2017–Present)</div><div style="display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;padding:20px 0"><div style="width:240px;height:240px;position:relative;flex-shrink:0"><canvas id="chainDonut"></canvas></div><div id="donut-legend" style="display:flex;flex-wrap:wrap;gap:10px;max-width:500px"></div></div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="exp-on" class="alt-bg">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Career History</div>
+<h2 class="section-title reveal">Professional Experience</h2>
+<p class="section-desc reveal">Started in the UAE doing reinsurance, moved to the US for subrogation, went on-chain in 2017 and never looked back.</p>
+</div>
+<div class="timeline">
+
+<!-- On-Chain -->
+<div class="tl-item reveal">
+<div class="tl-date">2017 – Present <span class="tl-badge">Current</span></div>
+<div class="tl-card">
+<h3>Independent On-Chain Intelligence Analyst & AI Developer</h3>
+<div class="tl-company">Self-Directed Research · Dallas, TX (Remote)</div>
+<p class="desc">Started alongside employment in 2017. Went full-time in 2020 while handling family caregiving. Built everything independently — no team, no employer, no formal training. Grew $5K of personal capital to over $300K through on-chain analysis, position management, and risk controls I developed myself.</p>
+<ul>
+<li>Monitored wallet activity across most major L1s and L2s — Bitcoin, Ethereum, Solana, Arbitrum, Base, Optimism, Polygon, Avalanche, BSC, Cosmos, Sui, Aptos, Near, Stacks, Tron, and others. Tracked whale movements, team token distributions, wallet concentration, protocol treasury flows, and vesting unlocks. Used Arkham, Bubblemaps, GMGN, Dune, DexScreener, Etherscan, Solscan, and whatever else the chain needed</li>
+<li>Deep hands-on experience across the full DeFi ecosystem — not just watching, actually participating: BTC ecosystem (spot trading, Ordinals/BRC-20, Lightning Network, Stacks L2 with STX stacking for BTC rewards and DeFi via Alex and Arkadiko), liquid staking and restaking protocols, perpetual DEXs, prediction markets (Polymarket 2+ years, Kalshi for arbitrage), NFT markets (minting, secondary, trait analysis), RWA tokenization, DAO governance, cross-chain bridges, DePIN networks, and GameFi economies. Understood the mechanics because I used them</li>
+<li>Grew personal capital from $5K to over $300K using a combination of on-chain intelligence, technical analysis, and strict risk management. Developed and followed position sizing rules, stop-loss discipline, and portfolio allocation frameworks — treating it like a professional operation, not gambling</li>
+<li>Started with raw block explorers, pulling up individual transactions and working through them manually. As better tools came along, adopted them and set up threshold alerts, wallet filters, and monitoring across thousands of addresses</li>
+<li>Spotted manipulation patterns daily — wallet clustering to disguise ownership, coordinated buying across new wallets, artificial volatility, liquidity rug pulls. After years of watching these play out, could read the setups from wallet activity alone before anything happened</li>
+<li>Tracked fund flows across chains — accumulation and distribution cycles, exchange deposit/withdrawal patterns, bridge transfers, DeFi protocol interactions — to build a picture of how capital actually moves through the ecosystem</li>
+<li>Reviewed whitepapers and looked at smart contract code for supply emissions, mint/burn functions, hidden fee mechanisms, and max supply verification. Did this across hundreds of protocols as part of my own risk assessment process</li>
+<li>Built Dune dashboards for tracking large wallet movements on Polymarket using SQL queries — filtering by dollar threshold across all markets and maintaining a whale watchlist with threshold-based alerts. Manually track big buys as one of multiple data sources for making betting decisions. Been active on Polymarket 2+ years across crypto events (ETF approvals, protocol launches), politics/elections, sports, and economics (Fed rates, CPI, jobs data)</li>
+<li>Run cross-platform arbitrage between Polymarket and Kalshi — spot price differences on the same event, track how on-chain whale activity signals odds movements before they reprice, and use custom Python scripts combined with AI analysis to scrape and process data faster than markets adjust. The edge comes from combining all of these, not relying on any single signal</li>
+<li>Developed Pine Script indicators on TradingView based on my own trading strategies — momentum signals, divergence detection, and liquidity zone identification refined over years of live market testing</li>
+</ul>
+<div style="margin-top:20px"><h4 style="color:var(--accent);font-size:.9rem;margin-bottom:12px">Things Built (2024–Present):</h4><ul>
+<li>Document intelligence app — built from scratch using Python, LangChain, and LLM APIs. Takes messy financial and legal PDFs, chunks them, runs them through LLMs, and returns structured answers with exact citations (page, paragraph, line number). PII gets redacted on the browser side. A DDQ that normally takes 5-6 hours — handles in under 10 minutes</li>
+<li>Local AI Assistant (OpenClaw) — set up a local AI that runs on my machine with zero data leaving the device. Full environment build from scratch — model config, Python dependencies, troubleshooting. Use it for anything where I don't want data hitting external APIs</li>
+<li>Affiliate commerce engine — scrapes trending products, scores them by virality and commission potential, then auto-generates video reviews. AI video pipeline: Gemini writes the script, ElevenLabs does the voiceover, Shotstack renders vertical video. Stack: Next.js 15, TypeScript, Tailwind, Supabase, Vercel. Currently deployed</li>
+</ul></div>
+<div class="tl-metrics"><div class="metric"><div class="mv">$5K→$300K+</div><div class="ml">Capital Grown</div></div><div class="metric"><div class="mv">15+</div><div class="ml">Blockchains</div></div><div class="metric"><div class="mv">3</div><div class="ml">AI Products</div></div><div class="metric"><div class="mv">7yr+</div><div class="ml">Track Record</div></div></div>
+</div>
+</div>
+
+<!-- Crawford -->
+<div class="tl-item reveal">
+<div class="tl-date">Oct 2016 – Mar 2020</div>
+<div class="tl-card">
+<h3>Subrogation Specialist</h3>
+<div class="tl-company">Crawford & Company (Broadspire) · Dallas, TX</div>
+<p class="desc">Ran the 7-Eleven subrogation portfolio nationwide. Owned every case from investigation through closure — all mine.</p>
+<ul>
+<li>Recovered over $3 Million in assets on a national commercial account (7-Eleven), including multiple six-figure single-case recoveries</li>
+<li>Maintained 300–400+ active claims. Put together evidence packages and worked directly with legal counsel, contractors, franchisees, and opposing parties. Handled cross-border cases between the US and Canada</li>
+<li>Built my own tracking systems — color-coded, status-based — because the existing tools weren't enough to keep tabs on what was missing, what was stuck, and what needed attention next. Pushed throughput up about 30%</li>
+<li>Referred suspected fraud cases to SIU — inflated figures, identity fraud. Used LexisNexis and investigative databases for party validation</li>
+</ul>
+<div class="tl-metrics"><div class="metric"><div class="mv">$3M+</div><div class="ml">Recovered</div></div><div class="metric"><div class="mv">300–400</div><div class="ml">Active Files</div></div><div class="metric"><div class="mv">85%+</div><div class="ml">Demand Accept.</div></div><div class="metric"><div class="mv">+30%</div><div class="ml">Throughput</div></div></div>
+</div>
+</div>
+
+<!-- Windhaven -->
+<div class="tl-item reveal">
+<div class="tl-date">Jan 2016 – Aug 2016</div>
+<div class="tl-card">
+<h3>Auto Claims Adjuster</h3>
+<div class="tl-company">Windhaven Insurance · Dallas, TX</div>
+<ul>
+<li>Handled 30–40 new claims per day with settlement authority up to $25K. Investigated 1st and 3rd-party PD claims, making independent liability and coverage decisions</li>
+<li>Referred numerous suspected fraud cases to the Special Investigations Unit</li>
+</ul>
+<div class="tl-metrics"><div class="metric"><div class="mv">30–40</div><div class="ml">Claims/Day</div></div><div class="metric"><div class="mv">$25K</div><div class="ml">Settlement Auth.</div></div><div class="metric"><div class="mv">180+</div><div class="ml">Active Inventory</div></div></div>
+</div>
+</div>
+
+<!-- RAK -->
+<div class="tl-item reveal">
+<div class="tl-date">Apr 2013 – Oct 2015</div>
+<div class="tl-card">
+<h3>Claims Officer</h3>
+<div class="tl-company">RAK Insurance · Ras Al Khaimah, UAE</div>
+<ul>
+<li>Handled end-to-end claims across property, fire, engineering, marine cargo, and workers' comp. Sole responsibility for monthly claims bordereaux — verifying each party's proportional financial share, payment obligations, and outstanding reserves across international counterparties in multiple currencies</li>
+<li>Coordinated on the Villagio Mall catastrophic loss (~$80M USD). RAK Insurance was one of the reinsurers on the risk. Managed counterparty correspondence, payment allocation, and share verification across international parties spanning UAE, Qatar, Lebanon, and France. Multi-year resolution involving fatalities</li>
+<li>Built Excel tracking systems for file status, reserve movements, and reporting mismatches where the existing systems fell short</li>
+</ul>
+<div class="tl-metrics"><div class="metric"><div class="mv">~$80M</div><div class="ml">Villagio Mall</div></div><div class="metric"><div class="mv">$50K</div><div class="ml">Reserve Auth.</div></div><div class="metric"><div class="mv">6+</div><div class="ml">Coverage Lines</div></div></div>
+</div>
+</div>
+</div><!-- end timeline -->
+</section>
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects-on">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Work Samples</div>
+<h2 class="section-title reveal">Featured Projects</h2>
+<p class="section-desc reveal">Everything here I built myself. No team, no employer, no tutorial.</p>
+</div>
+<div class="projects-grid">
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">📄</span><span class="pc-status">🟢 Production</span></div><h3>Document Intelligence Platform</h3><p>Takes messy financial and legal PDFs, redacts PII on the browser side, chunks them through LLMs, and gives back structured answers with exact citations — page, paragraph, line number. Built it because I got tired of spending hours digging through documents manually.</p><div class="pc-tech"><span>LangChain</span><span>RAG</span><span>Python</span><span>OpenAI</span><span>Anthropic</span><span>Supabase</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🖥️</span><span class="pc-status">🟢 Active</span></div><h3>Local AI Assistant (OpenClaw)</h3><p>Local AI running entirely on my machine — nothing leaves the device. Built the full environment from scratch. Use it for document analysis and research when I don't want data hitting external APIs.</p><div class="pc-tech"><span>Python</span><span>OpenClaw</span><span>Local LLMs</span><span>Inference</span><span>Privacy-First</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🛒</span><span class="pc-status">🟢 Production</span></div><h3>Affiliate Commerce Engine</h3><p>Scrapes trending products, scores them by virality and commission potential, then auto-generates video reviews — Gemini writes the script, ElevenLabs does the voiceover, Shotstack renders the video. Currently deployed and running.</p><div class="pc-tech"><span>Next.js</span><span>TypeScript</span><span>Gemini API</span><span>ElevenLabs</span><span>Shotstack</span><span>Vercel</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">📊</span><span class="pc-status">📁 Archived</span></div><h3>Dune Analytics Dashboards</h3><p>Custom SQL dashboards tracking on-chain activity: wallet clustering, DeFi flow analysis, token launch monitoring, and bridge activity surveillance. Original files lost due to hardware failure — methodology and SQL patterns retained.</p><div class="pc-tech"><span>Dune SQL</span><span>Ethereum</span><span>Solana</span><span>Arbitrum</span><span>DeFi</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">📈</span><span class="pc-status">🟢 Active</span></div><h3>Pine Script Trading Indicators</h3><p>Custom TradingView indicators built from my own trading strategies developed over years of live market testing. Momentum signals, on-chain divergence alerts, and liquidity zone detection. Not off-the-shelf TA — original methodology refined through thousands of trades and backtesting.</p><div class="pc-tech"><span>Pine Script</span><span>TradingView</span><span>DexScreener</span><span>Arkham</span><span>Strategy Dev</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🗂️</span><span class="pc-status">🏆 Enterprise</span></div><h3>Crawford Excel Recovery Tracker</h3><p>Custom multi-sheet Excel framework built to manage 300–400 concurrent subrogation files. Improved throughput by ~30%.</p><div class="pc-tech"><span>Advanced Excel</span><span>VBA</span><span>Claims Ops</span><span>Subrogation</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🎯</span><span class="pc-status">🟢 Active</span></div><h3>Prediction Market Intelligence System</h3><p>Cross-platform arbitrage and data-backed betting across Polymarket (2+ years) and Kalshi. Built Dune SQL dashboards with whale watchlists and dollar-threshold alerts to track big buys in real time. Custom Python scripts + AI pipeline scrapes and processes data faster than markets reprice. Covers crypto events, politics, sports, and economics — the edge comes from combining multiple signals, not any single one.</p><div class="pc-tech"><span>Polymarket</span><span>Kalshi</span><span>Dune SQL</span><span>Python</span><span>AI Scraping</span><span>Arbitrage</span></div></div>
+<div class="project-card reveal"><div class="pc-header"><span class="pc-icon">🔍</span><span class="pc-status">🟡 In Progress</span></div><h3>Crypto Compliance Intelligence Tool</h3><p>Python + LLM pipeline for building automated blockchain compliance reports — integrating Arkham wallet labels, risk scoring, and LLM-generated narrative summaries for flagged entities.</p><div class="pc-tech"><span>Python</span><span>Arkham API</span><span>LangChain</span><span>Compliance</span><span>KYC/AML</span></div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills-on" class="alt-bg">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Technical Skills</div>
+<h2 class="section-title reveal">Full Stack of<br>Capabilities</h2>
+</div>
+<div class="skills-grid" style="margin-top:40px">
+<div class="skill-group reveal"><h4>On-Chain Tools</h4><ul><li>Arkham Intelligence</li><li>Bubblemaps</li><li>GMGN</li><li>DexScreener</li><li>Photon</li><li>Etherscan / Solscan</li><li>Mempool.space / Ord.io</li><li>Wallet Clustering</li><li>Fund Flow Tracing</li><li>Smart Contract Review</li><li>Tokenomics Analysis</li></ul></div>
+<div class="skill-group reveal"><h4>DeFi & Markets</h4><ul><li>BTC (Ordinals / BRC-20)</li><li>Stacks L2 (Alex, Arkadiko, sBTC)</li><li>Lightning Network</li><li>Polymarket (2+ years)</li><li>Kalshi (Arbitrage)</li><li>Liquid Staking / Restaking</li><li>Perpetual DEXs</li><li>Prediction Markets</li><li>NFT Analysis</li><li>Cross-Chain Bridges</li><li>RWA Tokenization</li><li>DAO Governance</li><li>DePIN / GameFi</li><li>Pine Script (TradingView)</li><li>Position Sizing / Risk Mgmt</li></ul></div>
+<div class="skill-group reveal"><h4>AI / Dev Stack</h4><ul><li>Python (Pandas, NumPy)</li><li>LangChain</li><li>RAG Pipelines</li><li>OpenAI / Anthropic / Gemini APIs</li><li>Next.js / TypeScript</li><li>Supabase / Postgres</li><li>Local LLMs (OpenClaw)</li><li>Pine Script</li><li>Git / Bash</li></ul></div>
+<div class="skill-group reveal"><h4>Insurance Operations</h4><ul><li>Subrogation Recovery</li><li>Claims Bordereaux</li><li>Reserve Analysis</li><li>Treaty / Facultative Re</li><li>FNOL Processing</li><li>Demand Packages</li><li>LexisNexis</li><li>Multi-line Commercial</li><li>MIS Reporting</li></ul></div>
+<div class="skill-group reveal"><h4>Analytics</h4><ul><li>Advanced Excel (VBA)</li><li>SQL</li><li>Dashboard Design</li><li>Fund-Flow Tracing</li><li>Performance KPIs</li><li>Fraud Detection</li><li>Evidence-Based Investigation</li></ul></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="edu-on">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Education & Certifications</div>
+<h2 class="section-title reveal">Credentials</h2>
+</div>
+<div class="edu-grid" style="margin-top:40px">
+<div class="edu-item reveal"><div><div class="ed-title">MBA</div><div class="ed-school">Middlesex University, London, UK</div></div><div class="ed-year">2011</div></div>
+<div class="edu-item reveal"><div><div class="ed-title">BSc Computer Science</div><div class="ed-school">Manipur University, India</div></div><div class="ed-year">2008</div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact-on" class="alt-bg">
+<div class="contact-inner">
+<div class="section-tag reveal" style="justify-content:center">Let's Connect</div>
+<h2 class="section-title reveal" style="text-align:center">Get In Touch</h2>
+<p class="reveal">Open to on-chain intelligence, crypto compliance, InsurTech AI, and senior claims/subrogation roles. Available for remote or Dallas-based positions.</p>
+<div class="contact-links reveal">
+<a href="mailto:jjohn3858@gmail.com" class="contact-link">📧 jjohn3858@gmail.com</a>
+<a href="tel:+14698822346" class="contact-link">📱 +1-469-882-2346</a>
+<a href="https://www.linkedin.com/in/jobin-john-3876593a4/" target="_blank" class="contact-link">💼 LinkedIn</a>
+<a href="https://github.com/jjohnplr" target="_blank" class="contact-link">🐙 GitHub</a>
+</div>
+</div>
+</section>
+<footer>© <span class="auto-year"></span> <span>Jobin John</span> · On-Chain Intelligence · Insurance Recovery · AI Engineering</footer>
+</div><!-- end onchain -->
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script>
+/* ── ROUTING ── */
+function showVersion(v){document.getElementById('landing').classList.add('hidden');document.getElementById('insurance').classList.add('hidden');document.getElementById('onchain').classList.add('hidden');const el=document.getElementById(v==='insurance'?'insurance':'onchain');el.classList.remove('hidden');el.classList.add('page-fade');const root=document.getElementById(v==='insurance'?'insurance':'onchain');const accent=getComputedStyle(root).getPropertyValue('--accent').trim();initParticles(v==='insurance'?'particles-ins':'particles-on',accent,v);if(v==='onchain')setTimeout(()=>initCharts('on','#00FF41'),300);else setTimeout(()=>initCharts('ins','#00F0FF'),300);setTimeout(function(){initScrollReveal();initNavTracking();initParallax()},100);window.scrollTo(0,0)}
+function showLanding(){document.getElementById('insurance').classList.add('hidden');document.getElementById('onchain').classList.add('hidden');document.getElementById('landing').classList.remove('hidden');window.scrollTo(0,0)}
+document.querySelectorAll('.auto-year').forEach(el=>el.textContent=new Date().getFullYear());
+
+/* ── HEX TO RGBA ── */
+function hexToRgba(h,a){h=h.replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const b=parseInt(h,16);return`rgba(${(b>>16)&255},${(b>>8)&255},${b&255},${a})`}
+
+/* ── AURA-STYLE PARTICLES (Interactive) ── */
+let pulseIntervals={};
+function initParticles(canvasId,accent,version){
+const canvas=document.getElementById(canvasId);if(!canvas||canvas.dataset.init)return;
+const ctx=canvas.getContext('2d');canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;canvas.dataset.init='1';
+if(pulseIntervals[version])clearInterval(pulseIntervals[version]);
+const isIns=version==='insurance';
+const COUNT=isIns?80:120,SIZE=isIns?2.5:3.5,SPEED=isIns?0.25:.35,DIST=isIns?200:230,MAX_CONN=isIns?3:4;
+const MOUSE_RADIUS=200,MOUSE_FORCE=isIns?0.9:1.4;
+const mouse={x:-1000,y:-1000,active:false};
+canvas.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true});
+canvas.addEventListener('mouseleave',()=>{mouse.active=false;mouse.x=-1000;mouse.y=-1000});
+
+/* Ambient background orbs */
+const orbs=[];
+for(let i=0;i<(isIns?3:5);i++){orbs.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:80+Math.random()*120,vx:(Math.random()-.5)*.08,vy:(Math.random()-.5)*.08,phase:Math.random()*Math.PI*2})}
+
+const particles=[];
+class P{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-.5)*SPEED;this.vy=(Math.random()-.5)*SPEED;this.baseVx=this.vx;this.baseVy=this.vy;this.s=SIZE+Math.random()*(isIns?1.5:2.5);this.c=0;this.pulse=Math.random()*Math.PI*2}
+update(){
+if(mouse.active){const dx=this.x-mouse.x,dy=this.y-mouse.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<MOUSE_RADIUS&&dist>0){const force=MOUSE_FORCE*(1-dist/MOUSE_RADIUS);this.vx+=dx/dist*force;this.vy+=dy/dist*force}}
+this.vx+=(this.baseVx-this.vx)*.02;this.vy+=(this.baseVy-this.vy)*.02;
+const spd=Math.sqrt(this.vx*this.vx+this.vy*this.vy);if(spd>3){this.vx=this.vx/spd*3;this.vy=this.vy/spd*3}
+this.x+=this.vx;this.y+=this.vy;
+if(this.x<0)this.x=canvas.width;if(this.x>canvas.width)this.x=0;if(this.y<0)this.y=canvas.height;if(this.y>canvas.height)this.y=0;
+this.pulse+=.025}
+draw(){
+const glow=.4+Math.sin(this.pulse)*.3;
+const s=this.s*(1+Math.sin(this.pulse)*.12);
+/* outer glow pass */
+ctx.shadowBlur=isIns?12:22;ctx.shadowColor=hexToRgba(accent,isIns?0.4:.7);
+ctx.fillStyle=hexToRgba(accent,.5+glow*.3);
+ctx.fillRect(this.x-s/2,this.y-s/2,s,s);
+ctx.shadowBlur=0;
+/* bright center */
+ctx.fillStyle=hexToRgba(accent,.95);
+const cs=s*.35;ctx.fillRect(this.x-cs/2,this.y-cs/2,cs,cs)}}
+for(let i=0;i<COUNT;i++)particles.push(new P);
+
+const pulses=[];
+function startPulse(){const p1=particles[Math.floor(Math.random()*particles.length)],p2=particles[Math.floor(Math.random()*particles.length)];if(p1!==p2)pulses.push({x1:p1.x,y1:p1.y,x2:p2.x,y2:p2.y,p:0,d:isIns?80:50})}
+function drawPulses(){for(let i=pulses.length-1;i>=0;i--){const pl=pulses[i];const t=pl.p/pl.d;const cx=pl.x1+(pl.x2-pl.x1)*t,cy=pl.y1+(pl.y2-pl.y1)*t;const alpha=isIns?0.5:.85;
+/* pulse trail */
+const trail=.15;if(t>trail){const tx=pl.x1+(pl.x2-pl.x1)*(t-trail),ty=pl.y1+(pl.y2-pl.y1)*(t-trail);const grad=ctx.createLinearGradient(tx,ty,cx,cy);grad.addColorStop(0,'transparent');grad.addColorStop(1,hexToRgba(accent,alpha*.4));ctx.strokeStyle=grad;ctx.lineWidth=isIns?1.5:2.5;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(cx,cy);ctx.stroke()}
+ctx.shadowBlur=isIns?14:24;ctx.shadowColor=hexToRgba(accent,alpha);ctx.fillStyle=hexToRgba(accent,alpha);ctx.beginPath();ctx.arc(cx,cy,isIns?2.5:4,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;pl.p++;if(pl.p>=pl.d)pulses.splice(i,1)}}
+
+function drawOrbs(){orbs.forEach(o=>{o.x+=o.vx;o.y+=o.vy;o.phase+=.008;if(o.x<-o.r)o.x=canvas.width+o.r;if(o.x>canvas.width+o.r)o.x=-o.r;if(o.y<-o.r)o.y=canvas.height+o.r;if(o.y>canvas.height+o.r)o.y=-o.r;
+const alpha=(isIns?0.02:.035)*(1+Math.sin(o.phase)*.5);
+const grad=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);grad.addColorStop(0,hexToRgba(accent,alpha));grad.addColorStop(1,'transparent');ctx.fillStyle=grad;ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,Math.PI*2);ctx.fill()})}
+
+function drawMouseGlow(){if(!mouse.active)return;
+/* outer ring */
+ctx.strokeStyle=hexToRgba(accent,isIns?0.08:.14);ctx.lineWidth=1;ctx.beginPath();ctx.arc(mouse.x,mouse.y,MOUSE_RADIUS,0,Math.PI*2);ctx.stroke();
+/* radial glow */
+const grad=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,MOUSE_RADIUS*.7);grad.addColorStop(0,hexToRgba(accent,isIns?0.05:.08));grad.addColorStop(1,'transparent');ctx.fillStyle=grad;ctx.beginPath();ctx.arc(mouse.x,mouse.y,MOUSE_RADIUS*.7,0,Math.PI*2);ctx.fill()}
+
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);
+drawOrbs();drawMouseGlow();
+particles.forEach(p=>{p.update();p.c=0});
+for(let i=0;i<particles.length;i++){if(particles[i].c>=MAX_CONN)continue;for(let j=i+1;j<particles.length;j++){if(particles[j].c>=MAX_CONN)continue;const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<DIST){const op=(1-dist/DIST)*(isIns?0.2:.32);
+/* gradient connection line */
+const grad=ctx.createLinearGradient(particles[i].x,particles[i].y,particles[j].x,particles[j].y);grad.addColorStop(0,hexToRgba(accent,op*.6));grad.addColorStop(.5,hexToRgba(accent,op));grad.addColorStop(1,hexToRgba(accent,op*.6));
+ctx.strokeStyle=grad;ctx.lineWidth=isIns?0.7:1.3;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();
+if(dist<DIST*.35){const mx=(particles[i].x+particles[j].x)/2,my=(particles[i].y+particles[j].y)/2;ctx.fillStyle=hexToRgba(accent,op*.6);ctx.fillRect(mx-1.5,my-1.5,3,3)}
+particles[i].c++;particles[j].c++;if(particles[i].c>=MAX_CONN)break}}}
+particles.forEach(p=>p.draw());drawPulses();requestAnimationFrame(animate)}
+animate();
+pulseIntervals[version]=setInterval(startPulse,isIns?1800:1100);
+window.addEventListener('resize',()=>{canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight})}
+
+/* ── SCROLL REVEAL (staggered) ── */
+function initScrollReveal(){const obs=new IntersectionObserver(e=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('active'),i*80)}})},{threshold:.06,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))}
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h==='#')return;e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+/* ── LANDING PARTICLES ── */
+(function(){
+const canvas=document.getElementById('particles-landing');if(!canvas)return;
+const ctx=canvas.getContext('2d');
+function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+resize();
+const particles=[];const COUNT=60;const DIST=180;
+const colors=[{r:0,g:240,b:255},{r:0,g:255,b:65},{r:102,g:126,b:234}];
+class P{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-.5)*.2;this.vy=(Math.random()-.5)*.2;this.s=2+Math.random()*2;this.col=colors[Math.floor(Math.random()*colors.length)];this.pulse=Math.random()*Math.PI*2}
+update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0)this.x=canvas.width;if(this.x>canvas.width)this.x=0;if(this.y<0)this.y=canvas.height;if(this.y>canvas.height)this.y=0;this.pulse+=.02}
+draw(){const a=.5+Math.sin(this.pulse)*.3;const c=this.col;ctx.fillStyle=`rgba(${c.r},${c.g},${c.b},${a})`;ctx.shadowBlur=10;ctx.shadowColor=`rgba(${c.r},${c.g},${c.b},.6)`;const s=this.s*(1+Math.sin(this.pulse)*.1);ctx.fillRect(this.x-s/2,this.y-s/2,s,s);ctx.shadowBlur=0}}
+for(let i=0;i<COUNT;i++)particles.push(new P);
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>p.update());
+for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<DIST){const op=(1-dist/DIST)*.1;ctx.strokeStyle=`rgba(255,255,255,${op})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke()}}}
+particles.forEach(p=>p.draw());requestAnimationFrame(animate)}
+animate();window.addEventListener('resize',resize)})();
+
+/* ── SCROLL PROGRESS BAR ── */
+window.addEventListener('scroll',function(){
+const bars=document.querySelectorAll('#scroll-progress');
+bars.forEach(function(bar){
+if(bar.closest('.hidden'))return;
+const h=document.documentElement.scrollHeight-window.innerHeight;
+const p=(window.scrollY/h)*100;
+bar.style.width=p+'%'});
+/* Back to top visibility */
+const btns=document.querySelectorAll('#back-top');
+btns.forEach(function(btn){
+if(btn.closest('.hidden'))return;
+if(window.scrollY>600)btn.classList.add('visible');else btn.classList.remove('visible')});
+});
+
+/* ── ANIMATED COUNTERS ── */
+function animateCounters(){
+document.querySelectorAll('.stat-value[data-target]').forEach(el=>{
+const target=parseFloat(el.dataset.target);
+const prefix=el.dataset.prefix||'';
+const suffix=el.dataset.suffix||'';
+const original=el.textContent;
+let current=0;
+const step=target/40;
+const timer=setInterval(()=>{
+current+=step;
+if(current>=target){current=target;clearInterval(timer);el.textContent=original}
+else el.textContent=prefix+Math.floor(current)+suffix;
+},30)})
+}
+
+/* ── TYPING EFFECT ON HERO BADGE ── */
+function typeEffect(el){
+if(!el||el.dataset.typed)return;
+el.dataset.typed='1';
+const text=el.textContent;
+el.textContent='';
+el.style.visibility='visible';
+let i=0;
+const cursor=document.createElement('span');
+cursor.className='typing-cursor';
+el.appendChild(cursor);
+function type(){
+if(i<text.length){el.insertBefore(document.createTextNode(text[i]),cursor);i++;setTimeout(type,40+Math.random()*30)}
+else{setTimeout(()=>{if(cursor.parentNode)cursor.remove()},1500)}}
+type()}
+
+/* ── CHART ANIMATION ON SCROLL ── */
+const chartObserver=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('active');
+/* Trigger chart redraw with animation */
+const canvas=entry.target.querySelector('canvas');
+if(canvas){
+const chart=Chart.getChart(canvas);
+if(chart){chart.reset();chart.update('active')}}
+}})},{threshold:0.2});
+
+
+/* ── V7: NAV SECTION TRACKING (single observer, reuses existing) ── */
+function initNavTracking(){
+const links=document.querySelectorAll('nav .nav-links a[href^="#"]');
+if(!links.length)return;
+const sections=[];
+links.forEach(a=>{const id=a.getAttribute('href');if(id&&id!=='#'){const el=document.querySelector(id);if(el)sections.push({el:el,link:a})}});
+if(!sections.length)return;
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+const match=sections.find(s=>s.el===entry.target);
+if(match){if(entry.isIntersecting){links.forEach(l=>l.classList.remove('nav-active'));match.link.classList.add('nav-active')}}
+})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s.el))}
+
+/* ── V8: HERO PARALLAX (passive mousemove, no rAF needed) ── */
+function initParallax(){
+const heroes=document.querySelectorAll('.hero');
+heroes.forEach(hero=>{
+const canvas=hero.querySelector('canvas');
+if(!canvas)return;
+hero.addEventListener('mousemove',function(e){
+const r=hero.getBoundingClientRect();
+const x=((e.clientX-r.left)/r.width-0.5)*12;
+const y=((e.clientY-r.top)/r.height-0.5)*12;
+canvas.style.transform='translate('+x+'px,'+y+'px)';
+},{passive:true});
+hero.addEventListener('mouseleave',function(){
+canvas.style.transform='translate(0,0)';
+},{passive:true})})}
+
+/* Override chart init to observe cards */
+const origInitCharts=initCharts;
+initCharts=function(suffix,accent){
+origInitCharts(suffix,accent);
+setTimeout(()=>{
+document.querySelectorAll('.chart-card canvas').forEach(canvas=>{
+const card=canvas.closest('.chart-card');
+if(card)chartObserver.observe(card)});
+/* Run counter animation */
+animateCounters();
+/* Type effect */
+const badge=document.querySelector('.hero-badge');
+typeEffect(badge);
+},400)}
+
+/* ── LANDING CARD CURSOR GLOW ── */
+document.querySelectorAll('.landing-card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const r=card.getBoundingClientRect();
+const x=e.clientX-r.left;
+const y=e.clientY-r.top;
+card.style.setProperty('--glow-x',x+'px');
+card.style.setProperty('--glow-y',y+'px')});
+card.addEventListener('mouseleave',()=>{
+card.style.removeProperty('--glow-x');
+card.style.removeProperty('--glow-y')})});
+
+/* ── CHARTS (RGB Data-Reflective, Theme-Consistent) ── */
+let chartsInitialized={};
+function initCharts(suffix,accent){
+if(chartsInitialized[suffix])return;chartsInitialized[suffix]=true;
+const GRID='rgba(255,255,255,0.04)',TDIM='#666';
+Chart.defaults.color='#666';Chart.defaults.font.family="'Outfit',sans-serif";
+
+/* Shared RGB palette — same colors both versions for data consistency */
+const RGB={
+  recovery:['rgba(255,107,107,.85)','rgba(255,193,69,.85)','rgba(0,230,118,.85)','rgba(0,176,255,.85)','rgba(187,134,252,.85)'],
+  recoveryBorder:['#ff6b6b','#ffc145','#00e676','#00b0ff','#bb86fc'],
+  active:'rgba(0,230,118,.7)',activeBorder:'#00e676',
+  daily:'rgba(255,193,69,.5)',dailyBorder:'#ffc145',
+  coverage:['rgba(0,176,255,.8)','rgba(0,230,118,.75)','rgba(255,193,69,.75)','rgba(187,134,252,.7)','rgba(255,107,107,.7)','rgba(255,167,38,.65)','rgba(0,255,157,.85)'],
+  coverageBorder:['#00b0ff','#00e676','#ffc145','#bb86fc','#ff6b6b','#ffa726','#00ff9d'],
+  radar:{bg:'rgba(0,230,118,.1)',border:'#00e676',point:'#00FF9D'},
+  radarIns:{bg:'rgba(0,176,255,.1)',border:'#00b0ff',point:'#00F0FF'},
+  chain:['#00e676','#00b0ff','#f7931a','#ffc145','#bb86fc','#e040fb','#ff6b6b','#7c4dff','#6d4c41','#26a69a','#ff9100','#78909c']
+};
+
+/* Recovery Bar */
+new Chart(document.getElementById('recoveryChart-'+suffix),{type:'bar',data:{labels:['2016 (partial)','2017','2018','2019','Q1 2020'],datasets:[{label:'Recovery ($K)',data:[180,720,920,840,340],backgroundColor:RGB.recovery,borderColor:RGB.recoveryBorder,borderWidth:2,borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'$'+ctx.raw+'K recovered'}}},scales:{x:{grid:{color:GRID},ticks:{color:TDIM}},y:{grid:{color:GRID},ticks:{color:TDIM,callback:v=>'$'+v+'K'},title:{display:true,text:'USD (thousands)',color:TDIM,font:{size:10}}}}}});
+
+/* Claims Volume — stacked grouped */
+new Chart(document.getElementById('claimsChart-'+suffix),{type:'bar',data:{labels:['RAK Insurance','Windhaven','Crawford'],datasets:[{label:'Active Inventory',data:[60,180,350],backgroundColor:['rgba(0,176,255,.65)','rgba(0,230,118,.65)','rgba(187,134,252,.65)'],borderColor:['#00b0ff','#00e676','#bb86fc'],borderWidth:2,borderRadius:6},{label:'New Claims/Day',data:[8,40,12],backgroundColor:['rgba(0,176,255,.25)','rgba(0,230,118,.25)','rgba(187,134,252,.25)'],borderColor:['rgba(0,176,255,.5)','rgba(0,230,118,.5)','rgba(187,134,252,.5)'],borderWidth:1.5,borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#888',font:{size:11},usePointStyle:true,pointStyle:'rectRounded'}}},scales:{x:{grid:{color:GRID},ticks:{color:TDIM}},y:{grid:{color:GRID},ticks:{color:TDIM}}}}});
+
+/* Radar — uses theme accent for tint */
+const radarLabels=suffix==='on'?['Subrogation','Reinsurance Ops','On-Chain Intel','AI / LLM Dev','Data Analysis','Fraud Detection','Python / SQL','Claims Mgmt']:['Subrogation','Reinsurance Ops','Data Analysis','Python/SQL','Claims Mgmt','Fraud Detection','Doc Intelligence','Process Automation'];
+const radarData=suffix==='on'?[95,82,88,80,85,78,80,92]:[95,82,85,80,92,78,80,75];
+const radarC=suffix==='on'?RGB.radar:RGB.radarIns;
+new Chart(document.getElementById('radarChart-'+suffix),{type:'radar',data:{labels:radarLabels,datasets:[{label:'Proficiency',data:radarData,backgroundColor:radarC.bg,borderColor:radarC.border,borderWidth:2,pointBackgroundColor:radarC.point,pointBorderColor:radarC.border,pointRadius:5,pointHoverRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{r:{grid:{color:'rgba(255,255,255,0.06)'},angleLines:{color:'rgba(255,255,255,0.06)'},ticks:{display:false,stepSize:20},pointLabels:{color:'#999',font:{size:11,weight:500}},min:0,max:100}}}});
+
+/* Coverage Lines — distinct color per line */
+new Chart(document.getElementById('coverageChart-'+suffix),{type:'bar',data:{labels:['Subrogation','Auto PD','Property','Fire','Engineering','Marine Cargo','Workers Comp'],datasets:[{label:'Experience Depth',data:[95,88,85,80,75,72,68],backgroundColor:RGB.coverage,borderColor:RGB.coverageBorder,borderWidth:2,borderRadius:6}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.raw+'% depth'}}},scales:{x:{grid:{color:GRID},ticks:{color:TDIM},min:0,max:100},y:{grid:{color:GRID},ticks:{color:TDIM,font:{size:11}}}}}});
+
+/* On-Chain Donut (only on-chain) */
+if(suffix==='on'){
+const chainLabels=['Ethereum','Solana','Bitcoin/Stacks','BSC','Arbitrum','Polygon/Optimism','Tron','Base','Cosmos/Near','Sui/Aptos','Avalanche','Others'];
+const chainVals=[20,16,12,8,7,6,6,5,5,5,4,6];
+new Chart(document.getElementById('chainDonut'),{type:'doughnut',data:{labels:chainLabels,datasets:[{data:chainVals,backgroundColor:RGB.chain,borderColor:'rgba(0,0,0,.6)',borderWidth:2,hoverBorderColor:'#fff',hoverBorderWidth:2}]},options:{responsive:true,maintainAspectRatio:true,cutout:'62%',layout:{padding:10},plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.label+': '+ctx.raw+'%'}}}}});
+const leg=document.getElementById('donut-legend');leg.innerHTML='';
+chainLabels.forEach((l,i)=>{const d=document.createElement('div');d.style.cssText='display:flex;align-items:center;gap:7px;font-size:.82rem;';d.innerHTML=`<span style="width:12px;height:12px;border-radius:3px;background:${RGB.chain[i]};display:inline-block;box-shadow:0 0 6px ${RGB.chain[i]}44"></span><span style="color:#aaa">${l}</span><span style="color:${RGB.chain[i]};font-weight:700;margin-left:2px">${chainVals[i]}%</span>`;leg.appendChild(d)})}
+}
+</script>
+<!-- Analytics (GoatCounter — free, no cookies, GDPR-compliant) -->
+<!-- SETUP: Sign up at https://www.goatcounter.com (free) then replace YOURSITE below with your chosen site code -->
+<script data-goatcounter="https://jjohndev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
