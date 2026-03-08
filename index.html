@@ -580,7 +580,7 @@ Forney, TX (Open to Remote)
 <li>Had $20K settlement authority and $50K reserve authority. Appointed and supervised independent loss adjusters and surveyors, making sure they hit SLA deadlines and reported accurately</li>
 <li>Built Excel tracking systems for file status, reserve movements, and reporting gaps where the existing systems weren't enough. Trained my replacement over several months with a full process handover before moving to the US</li>
 </ul>
-<div class="tl-metrics"><div class="metric"><div class="mv">~$80M</div><div class="ml">Villagio Mall</div></div><div class="metric"><div class="mv">$50K</div><div class="ml">Reserve Auth.</div></div><div class="metric"><div class="mv">6+</div><div class="ml">Coverage Lines</div></div></div>
+<div class="tl-metrics"><div class="metric"><div class="mv">~$80M</div><div class="ml">Villagio Mall</div></div><div class="metric"><div class="mv">300+</div><div class="ml">Active Claims</div></div><div class="metric"><div class="mv">$50K</div><div class="ml">Reserve Auth.</div></div><div class="metric"><div class="mv">6+</div><div class="ml">Coverage Lines</div></div></div>
 </div>
 </div>
 
@@ -838,7 +838,7 @@ Forney, TX (Open to Remote)
 <li>Coordinated on the Villagio Mall catastrophic loss (~$80M USD). RAK Insurance was one of the reinsurers on the risk. Managed counterparty correspondence, payment allocation, and share verification across international parties spanning UAE, Qatar, Lebanon, and France. Multi-year resolution involving fatalities</li>
 <li>Built Excel tracking systems for file status, reserve movements, and reporting mismatches where the existing systems fell short</li>
 </ul>
-<div class="tl-metrics"><div class="metric"><div class="mv">~$80M</div><div class="ml">Villagio Mall</div></div><div class="metric"><div class="mv">$50K</div><div class="ml">Reserve Auth.</div></div><div class="metric"><div class="mv">6+</div><div class="ml">Coverage Lines</div></div></div>
+<div class="tl-metrics"><div class="metric"><div class="mv">~$80M</div><div class="ml">Villagio Mall</div></div><div class="metric"><div class="mv">300+</div><div class="ml">Active Claims</div></div><div class="metric"><div class="mv">$50K</div><div class="ml">Reserve Auth.</div></div><div class="metric"><div class="mv">6+</div><div class="ml">Coverage Lines</div></div></div>
 </div>
 </div>
 </div><!-- end timeline -->
@@ -1155,7 +1155,7 @@ const RGB={
 new Chart(document.getElementById('recoveryChart-'+suffix),{type:'bar',data:{labels:['2016 (partial)','2017','2018','2019','Q1 2020'],datasets:[{label:'Recovery ($K)',data:[180,720,920,840,340],backgroundColor:RGB.recovery,borderColor:RGB.recoveryBorder,borderWidth:2,borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'$'+ctx.raw+'K recovered'}}},scales:{x:{grid:{color:GRID},ticks:{color:TDIM}},y:{grid:{color:GRID},ticks:{color:TDIM,callback:v=>'$'+v+'K'},title:{display:true,text:'USD (thousands)',color:TDIM,font:{size:10}}}}}});
 
 /* Claims Volume — stacked grouped */
-new Chart(document.getElementById('claimsChart-'+suffix),{type:'bar',data:{labels:['RAK Insurance','Windhaven','Crawford'],datasets:[{label:'Active Inventory',data:[60,180,350],backgroundColor:['rgba(0,176,255,.65)','rgba(0,230,118,.65)','rgba(187,134,252,.65)'],borderColor:['#00b0ff','#00e676','#bb86fc'],borderWidth:2,borderRadius:6},{label:'New Claims/Day',data:[8,40,12],backgroundColor:['rgba(0,176,255,.25)','rgba(0,230,118,.25)','rgba(187,134,252,.25)'],borderColor:['rgba(0,176,255,.5)','rgba(0,230,118,.5)','rgba(187,134,252,.5)'],borderWidth:1.5,borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#888',font:{size:11},usePointStyle:true,pointStyle:'rectRounded'}}},scales:{x:{grid:{color:GRID},ticks:{color:TDIM}},y:{grid:{color:GRID},ticks:{color:TDIM}}}}});
+new Chart(document.getElementById('claimsChart-'+suffix),{type:'bar',data:{labels:['RAK Insurance','Windhaven','Crawford'],datasets:[{label:'Active Inventory',data:[300,180,350],backgroundColor:['rgba(0,176,255,.65)','rgba(0,230,118,.65)','rgba(187,134,252,.65)'],borderColor:['#00b0ff','#00e676','#bb86fc'],borderWidth:2,borderRadius:6},{label:'New Claims/Day',data:[20,40,12],backgroundColor:['rgba(0,176,255,.25)','rgba(0,230,118,.25)','rgba(187,134,252,.25)'],borderColor:['rgba(0,176,255,.5)','rgba(0,230,118,.5)','rgba(187,134,252,.5)'],borderWidth:1.5,borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#888',font:{size:11},usePointStyle:true,pointStyle:'rectRounded'}}},scales:{x:{grid:{color:GRID},ticks:{color:TDIM}},y:{grid:{color:GRID},ticks:{color:TDIM}}}}});
 
 /* Radar — uses theme accent for tint */
 const radarLabels=suffix==='on'?['Subrogation','Reinsurance Ops','On-Chain Intel','AI / LLM Dev','Data Analysis','Fraud Detection','Python / SQL','Claims Mgmt']:['Subrogation','Reinsurance Ops','Data Analysis','Python/SQL','Claims Mgmt','Fraud Detection','Doc Intelligence','Process Automation'];
