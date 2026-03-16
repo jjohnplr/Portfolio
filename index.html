@@ -165,6 +165,21 @@ section::before{content:'';position:absolute;inset:0;background:url("data:image/
 
 /* ── SKILLS ── */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+
+/* ── SAMPLE ANALYTICS REPORTS ── */
+.reports-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.report-card{background:var(--card);border:1px solid var(--accent-border);border-radius:14px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.report-card:hover{border-color:var(--accent);box-shadow:0 0 28px var(--accent-glow2);transform:translateY(-4px)}
+.report-thumb{width:100%;aspect-ratio:2.8/1;object-fit:cover;object-position:top;border-bottom:1px solid var(--accent-border);display:block;transition:filter .3s}
+.report-card:hover .report-thumb{filter:brightness(1.1)}
+.report-body{padding:22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.report-body h3{color:var(--white);font-weight:700;font-size:.95rem}
+.report-body p{color:var(--text-dim);font-size:.84rem;line-height:1.65}
+.report-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:8px}
+.report-tags span{background:var(--accent-tag-bg);border:1px solid var(--accent-tag-border);color:var(--accent-dim);font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:4px}
+.btn-report{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:transparent;border:1px solid var(--accent-border);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;border-radius:8px;text-decoration:none;transition:all .3s;letter-spacing:.5px;width:fit-content}
+.btn-report:hover{background:var(--accent);color:var(--black);box-shadow:0 0 16px var(--accent-glow2)}
+@media(max-width:768px){.reports-grid{grid-template-columns:1fr}}
 .skill-group{background:var(--card);border:1px solid var(--accent-border);border-radius:12px;padding:24px}
 .skill-group h4{color:var(--accent);font-size:.88rem;font-weight:700;margin-bottom:14px;font-family:'JetBrains Mono',monospace}
 .skill-group li{color:var(--text);font-size:.84rem;padding:4px 0;list-style:none;padding-left:14px;position:relative}
@@ -279,6 +294,9 @@ footer span{color:var(--accent)}
 nav a.nav-active{color:var(--accent) !important}
 nav a.nav-active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent);border-radius:1px;box-shadow:0 0 8px var(--accent-glow)}
 nav .nav-links a{position:relative}
+/* Keep Hire Me button styled even when its section is active */
+nav a.btn-nav.nav-active{color:var(--black) !important}
+nav a.btn-nav.nav-active::after{display:none}
 
 /* ── V8: HERO PARTICLE PARALLAX (CSS transform, no JS loop) ── */
 .hero canvas{transition:transform .15s ease-out}
@@ -412,7 +430,7 @@ h2,h3{page-break-after:avoid}
 </div>
 
 <div class="landing-contact">
-<a href="mailto:jjohn3858@gmail.com">jjohn3858@gmail.com</a> |
+<a href="/cdn-cgi/l/email-protection#5c36363334326f6469641c3b313d3530723f3331"><span class="__cf_email__" data-cfemail="90fafafff8fea3a8a5a8d0f7fdf1f9fcbef3fffd">[email&#160;protected]</span></a> |
 <a href="tel:+14698822346">+1-469-882-2346</a> |
 Forney, TX (Open to Remote)
 </div>
@@ -623,6 +641,41 @@ Forney, TX (Open to Remote)
 </section>
 <div class="divider"></div>
 
+<!-- SAMPLE ANALYTICS REPORTS -->
+<section id="reports-ins">
+<div style="max-width:1100px;margin:0 auto">
+<div class="section-tag reveal">Case Studies</div>
+<h2 class="section-title reveal">Sample Analytics Reports</h2>
+<p class="section-desc reveal">Real analytical work — built from scratch, not templates. Each report demonstrates how I break down complex claims data into actionable intelligence.</p>
+</div>
+<div class="reports-grid">
+<div class="report-card reveal">
+<img src="thumb_auto_pd.png" alt="Auto Claim Case Study Preview" class="report-thumb" loading="lazy">
+<div class="report-body">
+<h3>Property & Casualty Auto Claim — Case Study & Analytics Report</h3>
+<p>Full case study covering a first-party collision and third-party liability analysis. Includes CCC ONE® valuation methodology, OEM vs independent shop cost comparison (64% savings identified), buy-back vs full payout analysis, injury profile across all parties, coverage exposure mapping, and a 15-day claim timeline with strategic playbook.</p>
+<p style="font-size:.74rem;color:var(--accent-dim);font-style:italic;margin-top:2px">Based on a real incident. All PII redacted and figures modified for privacy. For educational and portfolio use only.</p>
+<div class="report-tags">
+<span>Auto PD</span><span>Total Loss</span><span>ACV Valuation</span><span>BI Exposure</span><span>Subrogation</span><span>Case Study</span>
+</div>
+<a href="auto_pd.pdf" target="_blank" class="btn-report">📄 View Full Report →</a>
+</div>
+</div>
+<div class="report-card reveal">
+<img src="thumb_wc.png" alt="Workers Comp Analytics Preview" class="report-thumb" loading="lazy">
+<div class="report-body">
+<h3>Workers' Compensation Claims Analytics — Wholesale Distribution Industry</h3>
+<p>Comprehensive analysis of 1,247 claims across a multi-state employer (400+ branches, 10,000+ employees). Covers E-Mod trajectory (0.89 → 1.14), injury cause and body part analysis, first-year employee risk (the 37% problem), large loss impact waterfall, lost workdays & return-to-work performance, geographic heat map, and a strategic E-Mod reduction roadmap targeting 0.95.</p>
+<div class="report-tags">
+<span>Workers' Comp</span><span>E-Mod Analysis</span><span>RTW Programs</span><span>Loss Prevention</span><span>TPA Oversight</span><span>Industry Data</span>
+</div>
+<a href="wc.pdf" target="_blank" class="btn-report">📄 View Full Report →</a>
+</div>
+</div>
+</div>
+</section>
+<div class="divider"></div>
+
 <!-- SKILLS -->
 <section id="skills-ins" class="alt-bg">
 <div style="max-width:1100px;margin:0 auto">
@@ -657,7 +710,7 @@ Forney, TX (Open to Remote)
 <h2 class="section-title reveal" style="text-align:center">Get In Touch</h2>
 <p class="reveal">Open to claims operations, subrogation, reinsurance, and InsurTech roles. Available for Dallas-based or remote positions.</p>
 <div class="contact-links reveal">
-<a href="mailto:jjohn3858@gmail.com" class="contact-link">📧 jjohn3858@gmail.com</a>
+<a href="/cdn-cgi/l/email-protection#b2d8d8dddadc818a878af2d5dfd3dbde9cd1dddf" class="contact-link">📧 <span class="__cf_email__" data-cfemail="1b717174737528232e235b7c767a727735787476">[email&#160;protected]</span></a>
 <a href="tel:+14698822346" class="contact-link">📱 +1-469-882-2346</a>
 <a href="https://www.linkedin.com/in/jobin-john-3876593a4/" target="_blank" class="contact-link">💼 LinkedIn</a>
 </div>
@@ -901,7 +954,7 @@ Forney, TX (Open to Remote)
 <h2 class="section-title reveal" style="text-align:center">Get In Touch</h2>
 <p class="reveal">Open to on-chain intelligence, crypto compliance, InsurTech AI, and senior claims/subrogation roles. Available for remote or Dallas-based positions.</p>
 <div class="contact-links reveal">
-<a href="mailto:jjohn3858@gmail.com" class="contact-link">📧 jjohn3858@gmail.com</a>
+<a href="/cdn-cgi/l/email-protection#345e5e5b5c5a070c010c745359555d581a575b59" class="contact-link">📧 <span class="__cf_email__" data-cfemail="ff9595909791ccc7cac7bf98929e9693d19c9092">[email&#160;protected]</span></a>
 <a href="tel:+14698822346" class="contact-link">📱 +1-469-882-2346</a>
 <a href="https://www.linkedin.com/in/jobin-john-3876593a4/" target="_blank" class="contact-link">💼 LinkedIn</a>
 <a href="https://github.com/jjohnplr" target="_blank" class="contact-link">🐙 GitHub</a>
@@ -912,7 +965,7 @@ Forney, TX (Open to Remote)
 </div><!-- end onchain -->
 
 <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── ROUTING ── */
 function showVersion(v){document.getElementById('landing').classList.add('hidden');document.getElementById('insurance').classList.add('hidden');document.getElementById('onchain').classList.add('hidden');const el=document.getElementById(v==='insurance'?'insurance':'onchain');el.classList.remove('hidden');el.classList.add('page-fade');const root=document.getElementById(v==='insurance'?'insurance':'onchain');const accent=getComputedStyle(root).getPropertyValue('--accent').trim();initParticles(v==='insurance'?'particles-ins':'particles-on',accent,v);if(v==='onchain')setTimeout(()=>initCharts('on','#00FF41'),300);else setTimeout(()=>initCharts('ins','#00F0FF'),300);setTimeout(function(){initScrollReveal();initNavTracking();initParallax()},100);window.scrollTo(0,0)}
 function showLanding(){document.getElementById('insurance').classList.add('hidden');document.getElementById('onchain').classList.add('hidden');document.getElementById('landing').classList.remove('hidden');window.scrollTo(0,0)}
@@ -1074,19 +1127,42 @@ if(chart){chart.reset();chart.update('active')}}
 }})},{threshold:0.2});
 
 
-/* ── V7: NAV SECTION TRACKING (single observer, reuses existing) ── */
+/* ── V7: NAV SECTION TRACKING (scroll-based, scoped to active version) ── */
+let navScrollHandler=null;
 function initNavTracking(){
-const links=document.querySelectorAll('nav .nav-links a[href^="#"]');
+/* Remove previous handler if any */
+if(navScrollHandler){window.removeEventListener('scroll',navScrollHandler);navScrollHandler=null}
+/* Find the VISIBLE version's nav only */
+const activeVersion=document.querySelector('#insurance:not(.hidden), #onchain:not(.hidden)');
+if(!activeVersion)return;
+const nav=activeVersion.querySelector('nav');
+if(!nav)return;
+const links=nav.querySelectorAll('.nav-links a[href^="#"]:not(.btn-nav)');
 if(!links.length)return;
 const sections=[];
 links.forEach(a=>{const id=a.getAttribute('href');if(id&&id!=='#'){const el=document.querySelector(id);if(el)sections.push({el:el,link:a})}});
 if(!sections.length)return;
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-const match=sections.find(s=>s.el===entry.target);
-if(match){if(entry.isIntersecting){links.forEach(l=>l.classList.remove('nav-active'));match.link.classList.add('nav-active')}}
-})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});
-sections.forEach(s=>obs.observe(s.el))}
+navScrollHandler=function(){
+const scrollY=window.scrollY;
+const viewH=window.innerHeight;
+const docH=document.documentElement.scrollHeight;
+/* If near bottom of page, highlight last section */
+if(scrollY+viewH>=docH-60){
+links.forEach(l=>l.classList.remove('nav-active'));
+sections[sections.length-1].link.classList.add('nav-active');
+return}
+/* Otherwise find the section whose top is closest to viewport top + offset */
+let current=null;
+const offset=100;/* accounts for fixed nav height */
+for(let i=sections.length-1;i>=0;i--){
+const rect=sections[i].el.getBoundingClientRect();
+if(rect.top<=offset){current=sections[i];break}}
+links.forEach(l=>l.classList.remove('nav-active'));
+if(current)current.link.classList.add('nav-active');
+else if(sections.length)sections[0].link.classList.add('nav-active')};
+window.addEventListener('scroll',navScrollHandler,{passive:true});
+/* Run once immediately */
+navScrollHandler()}
 
 /* ── V8: HERO PARALLAX (passive mousemove, no rAF needed) ── */
 function initParallax(){
@@ -1172,11 +1248,9 @@ const chainLabels=['Ethereum','Solana','Bitcoin/Stacks','BSC','Arbitrum','Polygo
 const chainVals=[20,16,12,8,7,6,6,5,5,5,4,6];
 new Chart(document.getElementById('chainDonut'),{type:'doughnut',data:{labels:chainLabels,datasets:[{data:chainVals,backgroundColor:RGB.chain,borderColor:'rgba(0,0,0,.6)',borderWidth:2,hoverBorderColor:'#fff',hoverBorderWidth:2}]},options:{responsive:true,maintainAspectRatio:true,cutout:'62%',layout:{padding:10},plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.label+': '+ctx.raw+'%'}}}}});
 const leg=document.getElementById('donut-legend');leg.innerHTML='';
-chainLabels.forEach((l,i)=>{const d=document.createElement('div');d.style.cssText='display:flex;align-items:center;gap:7px;font-size:.82rem;';d.innerHTML=`<span style="width:12px;height:12px;border-radius:3px;background:${RGB.chain[i]};display:inline-block;box-shadow:0 0 6px ${RGB.chain[i]}44"></span><span style="color:#aaa">${l}</span><span style="color:${RGB.chain[i]};font-weight:700;margin-left:2px">${chainVals[i]}%</span>`;leg.appendChild(d)})}
+chainLabels.forEach((l,i)=>{const d=document.createElement('div');d.style.cssText='display:flex;align-items:center;gap:7px;font-size:.82rem;';d.innerHTML=`<span style="width:12px;height:12px;border-radius:3px;background:${RGB.chain[i]};display:inline-block;box-shadow:0 0 4px ${RGB.chain[i]}"></span><span style="color:#aaa">${l}</span>`;leg.appendChild(d)});
+}
 }
 </script>
-<!-- Analytics (GoatCounter — free, no cookies, GDPR-compliant) -->
-<!-- SETUP: Sign up at https://www.goatcounter.com (free) then replace YOURSITE below with your chosen site code -->
-<script data-goatcounter="https://jjohndev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
