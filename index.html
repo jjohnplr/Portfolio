@@ -238,13 +238,10 @@ footer span{color:var(--accent)}
 .landing-stat .ls-val{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#00F0FF,#00FF41);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .landing-stat .ls-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
 
-.landing-ticker{overflow:hidden;width:100%;margin-top:40px;animation:fadeIn 1.2s ease-out 1.2s both;position:relative}
-.landing-ticker::before,.landing-ticker::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2}
-.landing-ticker::before{left:0;background:linear-gradient(to right,#000,transparent)}
-.landing-ticker::after{right:0;background:linear-gradient(to left,#000,transparent)}
-.ticker-track{display:flex;gap:20px;animation:ticker 30s linear infinite;width:max-content}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-item{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#555;padding:6px 16px;border:1px solid rgba(255,255,255,.06);border-radius:999px;white-space:nowrap;background:rgba(255,255,255,.02)}
+/* ── SKILL TREE (ambient background behind cards) ── */
+.landing-cards{position:relative}
+.skill-tree-canvas{position:absolute;top:-250px;left:-80px;width:calc(100% + 160px);height:calc(100% + 300px);z-index:0}
+.landing-cards>.landing-card{position:relative;z-index:1}
 
 .landing-card .card-stats{display:flex;gap:16px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
 .landing-card .cs-item{text-align:center;flex:1}
@@ -317,7 +314,7 @@ nav a.btn-nav.nav-active::after{display:none}
 body,section,.section,.card,.chart-card,.expertise-card,.project-card,.timeline-item,.highlight-card,.skill-group,.stats-bar{background:#fff !important;border-color:#ddd !important}
 
 /* Hide interactive/decorative elements */
-canvas,#particles-landing,#scroll-progress,#back-top,#landing,.landing-ticker,.typing-cursor,nav,.back-link,.divider::before{display:none !important}
+canvas,#particles-landing,#scroll-progress,#back-top,#landing,.skill-tree-canvas,.typing-cursor,nav,.back-link,.divider::before{display:none !important}
 nav{display:block !important;position:static !important;background:#fff !important;border-bottom:2px solid #1a1a1a !important;padding:8px 0 !important;backdrop-filter:none !important}
 nav .back-link{display:none !important}
 nav .logo{color:#1a1a1a !important;font-weight:900 !important}
@@ -401,6 +398,7 @@ h2,h3{page-break-after:avoid}
 </div>
 
 <div class="landing-cards">
+<canvas id="skill-tree" class="skill-tree-canvas"></canvas>
 <div class="landing-card blue" onclick="showVersion('insurance')">
 <div class="card-icon">🛡️</div>
 <h2>Insurance & Claims Operations</h2>
@@ -420,13 +418,6 @@ h2,h3{page-break-after:avoid}
 <div class="cs-item"><div class="cs-val">15+</div><div class="cs-lab">Ecosystems</div></div>
 <div class="cs-item"><div class="cs-val">4</div><div class="cs-lab">Products Built</div></div>
 </div>
-</div>
-</div>
-
-<div class="landing-ticker">
-<div class="ticker-track">
-<span class="ticker-item">Subrogation</span><span class="ticker-item">Reinsurance</span><span class="ticker-item">Bordereaux</span><span class="ticker-item">Python</span><span class="ticker-item">SQL</span><span class="ticker-item">LangChain</span><span class="ticker-item">Arkham</span><span class="ticker-item">Polymarket</span><span class="ticker-item">RAG</span><span class="ticker-item">DeFi</span><span class="ticker-item">LexisNexis</span><span class="ticker-item">OpenClaw</span><span class="ticker-item">Kalshi</span><span class="ticker-item">Reserve Analysis</span><span class="ticker-item">Pine Script</span><span class="ticker-item">PII Redaction</span>
-<span class="ticker-item">Subrogation</span><span class="ticker-item">Reinsurance</span><span class="ticker-item">Bordereaux</span><span class="ticker-item">Python</span><span class="ticker-item">SQL</span><span class="ticker-item">LangChain</span><span class="ticker-item">Arkham</span><span class="ticker-item">Polymarket</span><span class="ticker-item">RAG</span><span class="ticker-item">DeFi</span><span class="ticker-item">LexisNexis</span><span class="ticker-item">OpenClaw</span><span class="ticker-item">Kalshi</span><span class="ticker-item">Reserve Analysis</span><span class="ticker-item">Pine Script</span><span class="ticker-item">PII Redaction</span>
 </div>
 </div>
 
@@ -1095,6 +1086,187 @@ function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEa
 for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<DIST){const op=(1-dist/DIST)*.1;ctx.strokeStyle=`rgba(255,255,255,${op})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke()}}}
 particles.forEach(p=>p.draw());requestAnimationFrame(animate)}
 animate();window.addEventListener('resize',resize)})();
+
+/* ── SKILL TREE (branches from top corners, merging above stats) ── */
+(function(){
+var canvas=document.getElementById('skill-tree');if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var parent=canvas.parentElement;
+function resize(){canvas.width=parent.offsetWidth+160;canvas.height=parent.offsetHeight+300}
+resize();
+
+/* COORDINATE MAP (y fractions of canvas):
+   0.00-0.05 = very top, level with heading
+   0.05-0.26 = open space, branches grow here freely
+   0.26-0.30 = merge zone, just ABOVE stats row
+   0.30-0.37 = STATS ROW (14+, $3M+, 5+, 4) — NO NODES HERE
+   0.37-0.40 = tiny gap between stats and card tops
+   0.40+     = cards area — outer edges only
+   
+   Cards: left ~x:0.10-0.47, right ~x:0.53-0.90
+   Center gap: x:0.47-0.53 — small connectors only at card-top level */
+
+var nodeDefs=[
+/* ── INS top-left branch: starts near heading, grows diag down-right ── */
+[0.06,0.04,'Bordereaux','ins'],
+[0.04,0.10,'Claims','ins'],
+[0.10,0.08,'Reserves','ins'],
+[0.08,0.16,'Subrogation','ins'],
+[0.14,0.13,'FNOL','ins'],
+[0.12,0.21,'LexisNexis','ins'],
+[0.18,0.18,'Recovery','ins'],
+[0.20,0.24,'SIU','ins'],
+/* Approach merge zone (above stats) */
+[0.26,0.27,'Demand','ins'],
+[0.32,0.29,'Claims Ops','ins'],
+
+/* ── ON-CHAIN top-right branch: starts near heading, grows diag down-left ── */
+[0.94,0.04,'DeFi','on'],
+[0.96,0.10,'Dune','on'],
+[0.90,0.08,'Arkham','on'],
+[0.92,0.16,'Forensics','on'],
+[0.86,0.13,'Wallets','on'],
+[0.88,0.21,'Polymarket','on'],
+[0.82,0.18,'NFTs','on'],
+[0.80,0.24,'Stacks','on'],
+/* Approach merge zone (above stats) */
+[0.74,0.27,'Bridges','on'],
+[0.68,0.29,'Lightning','on'],
+
+/* ── AI BRIDGE (center, above stats) ── */
+[0.40,0.26,'LangChain','ai'],
+[0.50,0.24,'RAG','ai'],
+[0.60,0.26,'LLM APIs','ai'],
+
+/* ── CARD TOP CONNECTORS (just above cards, between stats and card tops) ── */
+/* These sit at y:0.38-0.39, in the gap BELOW stats but ABOVE cards */
+[0.10,0.39,'','ins'],
+[0.47,0.38,'','shared'],
+[0.53,0.38,'','shared'],
+[0.90,0.39,'','on'],
+
+/* ── LEFT OUTER EDGE (runs down outside insurance card) ── */
+[0.08,0.48,'','ins'],
+[0.08,0.58,'','ins'],
+[0.08,0.68,'','ins'],
+
+/* ── RIGHT OUTER EDGE (runs down outside on-chain card) ── */
+[0.92,0.48,'','on'],
+[0.92,0.58,'','on'],
+[0.92,0.68,'','on']
+];
+
+var edges=[
+/* Insurance top-left branch internal */
+[0,1],[0,2],[1,3],[2,4],[3,5],[4,5],[4,6],[5,7],[6,7],[7,8],[8,9],
+/* On-chain top-right branch internal */
+[10,11],[10,12],[11,13],[12,14],[13,15],[14,15],[14,16],[15,17],[16,17],[17,18],[18,19],
+/* AI bridge internal */
+[20,21],[21,22],
+/* Insurance branch → AI bridge */
+[9,20],[8,20],[7,20],
+/* On-chain branch → AI bridge */
+[19,22],[18,22],[17,22],
+/* AI bridge → merge point */
+[20,21],[21,22],
+/* Merge → card-top connectors */
+[9,23],[20,24],[21,24],[21,25],[22,25],[19,26],
+/* Card-top connectors link */
+[23,24],[24,25],[25,26],
+/* Card-top → outer edges */
+[23,27],[27,28],[28,29],
+[26,30],[30,31],[31,32]
+];
+
+var CYAN={r:0,g:240,b:255};
+var GREEN={r:0,g:255,b:65};
+var WHITE={r:180,g:200,b:220};
+var PURPLE={r:187,g:134,b:252};
+
+function getColor(b){if(b==='ins')return CYAN;if(b==='on')return GREEN;if(b==='ai')return PURPLE;return WHITE}
+
+var nodes=[];
+function buildNodes(){
+nodes=nodeDefs.map(function(d){return{
+x:d[0]*canvas.width,y:d[1]*canvas.height,
+label:d[2],branch:d[3],col:getColor(d[3]),
+pulse:Math.random()*Math.PI*2,glow:0,r:d[2]?3.5+Math.random()*2:2+Math.random()*1
+}});
+}
+buildNodes();
+
+var mouse={x:-9999,y:-9999};
+var GLOW_RADIUS=130;
+canvas.addEventListener('mousemove',function(e){var rect=canvas.getBoundingClientRect();mouse.x=e.clientX-rect.left;mouse.y=e.clientY-rect.top});
+canvas.addEventListener('mouseleave',function(){mouse.x=-9999;mouse.y=-9999});
+
+var clickWave={active:false,x:0,y:0,r:0,maxR:0};
+canvas.addEventListener('click',function(e){var rect=canvas.getBoundingClientRect();clickWave={active:true,x:e.clientX-rect.left,y:e.clientY-rect.top,r:0,maxR:Math.max(canvas.width,canvas.height)*0.9}});
+
+function rgba(c,a){return'rgba('+c.r+','+c.g+','+c.b+','+a+')'}
+var globalPulse=0;
+
+function stAnimate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+globalPulse+=0.012;
+if(clickWave.active){clickWave.r+=4;if(clickWave.r>clickWave.maxR)clickWave.active=false}
+
+nodes.forEach(function(n){
+n.pulse+=0.018+Math.random()*0.004;
+var dx=n.x-mouse.x,dy=n.y-mouse.y;
+var dist=Math.sqrt(dx*dx+dy*dy);
+var targetGlow=dist<GLOW_RADIUS?Math.pow(1-dist/GLOW_RADIUS,1.5):0;
+if(clickWave.active){var wd=Math.abs(Math.sqrt(Math.pow(n.x-clickWave.x,2)+Math.pow(n.y-clickWave.y,2))-clickWave.r);if(wd<100)targetGlow=Math.max(targetGlow,Math.pow(1-wd/100,1.2)*2.0)}
+n.glow+=(targetGlow-n.glow)*0.05;
+});
+
+edges.forEach(function(e){
+var na=nodes[e[0]],nb=nodes[e[1]];
+var avgGlow=Math.max(na.glow,nb.glow);
+var breathe=0.05+Math.sin(globalPulse+na.pulse)*0.025;
+var alpha=breathe+avgGlow*0.5;
+var mixC={r:Math.round((na.col.r+nb.col.r)/2),g:Math.round((na.col.g+nb.col.g)/2),b:Math.round((na.col.b+nb.col.b)/2)};
+var grad=ctx.createLinearGradient(na.x,na.y,nb.x,nb.y);
+grad.addColorStop(0,rgba(na.col,alpha*0.6));
+grad.addColorStop(0.5,rgba(mixC,alpha));
+grad.addColorStop(1,rgba(nb.col,alpha*0.6));
+ctx.strokeStyle=grad;
+ctx.lineWidth=0.7+avgGlow*2.5;
+ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);ctx.stroke();
+if(avgGlow>0.15){
+var mx=(na.x+nb.x)/2,my=(na.y+nb.y)/2;
+var mG=ctx.createRadialGradient(mx,my,0,mx,my,6+avgGlow*10);
+mG.addColorStop(0,rgba(mixC,avgGlow*0.35));mG.addColorStop(1,'transparent');
+ctx.fillStyle=mG;ctx.beginPath();ctx.arc(mx,my,6+avgGlow*10,0,Math.PI*2);ctx.fill();
+}
+});
+
+nodes.forEach(function(n){
+var breathAlpha=0.2+Math.sin(n.pulse)*0.08;
+var alpha=breathAlpha+n.glow*0.8;
+var pulseScale=1+Math.sin(n.pulse)*0.18;
+var r=n.r*pulseScale*(1+n.glow*0.9);
+var glowR=r*2.5+n.glow*14;
+var oG=ctx.createRadialGradient(n.x,n.y,r*0.3,n.x,n.y,glowR);
+oG.addColorStop(0,rgba(n.col,0.06+n.glow*0.22));oG.addColorStop(1,'transparent');
+ctx.fillStyle=oG;ctx.beginPath();ctx.arc(n.x,n.y,glowR,0,Math.PI*2);ctx.fill();
+ctx.shadowBlur=6+n.glow*25;ctx.shadowColor=rgba(n.col,0.3+n.glow*0.6);
+ctx.fillStyle=rgba(n.col,alpha);ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba({r:Math.min(n.col.r+70,255),g:Math.min(n.col.g+70,255),b:Math.min(n.col.b+70,255)},alpha*1.2);
+ctx.beginPath();ctx.arc(n.x,n.y,r*0.3,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+if(n.label&&n.glow>0.08){
+var la=Math.min(n.glow*1.6,1.0);
+ctx.font="700 10px 'JetBrains Mono',monospace";ctx.textAlign='center';
+ctx.shadowBlur=6;ctx.shadowColor='rgba(0,0,0,0.9)';
+ctx.fillStyle=rgba(n.col,la);ctx.fillText(n.label,n.x,n.y-r-7);ctx.shadowBlur=0;
+}
+});
+
+requestAnimationFrame(stAnimate);
+}
+stAnimate();
+window.addEventListener('resize',function(){resize();buildNodes()});
+})();
 
 /* ── SCROLL PROGRESS BAR ── */
 window.addEventListener('scroll',function(){
